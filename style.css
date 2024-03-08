@@ -23,7 +23,7 @@
 
 #clock,
 #timer {
-    font-size: 12em;
+    font-size: 8em;
     font-family: 'digi-bold', 'Courier New', Courier, monospace;
 }
 
@@ -49,10 +49,12 @@
 button {
     text-transform: uppercase;
     font-size: 1em;
-    padding: 10px 31px;
+    padding: 30px;
     color: #fefefe;
     font-family: sans-serif, 'Courier New', Courier, monospace;
-    border-radius: 15px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
 }
 
 #start-btn {
