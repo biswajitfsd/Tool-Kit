@@ -1,4 +1,4 @@
-var timer = function(time) {
+var timer_fun = function(time) {
     // Get the selected time from the dropdown
     var selectedMinutes = parseInt(time, 10);
     var duration = selectedMinutes * 60 * 1000; // Convert minutes to milliseconds
@@ -24,6 +24,4 @@ var timer = function(time) {
             document.getElementById("timer").innerHTML = "TIME UP";
         }
     }, 1000); // Update every second
-};
-document.getElementById("start-btn").addEventListener("click", timer(25));
-document.getElementById("break-btn").addEventListener("click", timer(5));
+}
