@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "digi-bold";
+    src: url(./fonts/ds_digital/DS-DIGIB.TTF);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+#countdown {
+    text-align: center;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+}
+
+#timer {
+    font-size: 12em;
+    font-family: 'digi-bold', 'Courier New', Courier, monospace;
+}
+
+#timer-settings {
+    column-gap: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 10px 31px;
+    color: #fefefe;
+    font-family: sans-serif, 'Courier New', Courier, monospace;
+    border-radius: 15px;
+}
+
+#start-btn {
+    background: #009688;
+}
+
+#break-btn {
+    background: #F44336;
+}
