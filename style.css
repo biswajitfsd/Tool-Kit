@@ -63,8 +63,23 @@ button {
     background: #F44336;
 }
 
-#clcok-block {}
+#clcok-block {
+    width: calc(100% - 62px);
+    padding: 20px 20px 0px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
 
-.row1 {}
+.row1 {
+    border-bottom: 1px dotted black;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.row2 {}
+.row2 {
+    padding-top: 10px;
+}
