@@ -6,6 +6,10 @@
     <title>Countdown Timer</title>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <style>
+        @font-face {
+            font-family: "digi-bold";
+            src: url(../fonts/ds_digital/DS-DIGIB.TTF);
+        }
     * {
         margin: 0;
         padding: 0;
@@ -25,6 +29,7 @@
     
     #timer {
         font-size: 2em;
+        font-family: 'digi-bold', 'Courier New', Courier, monospace;
     }
 
     #timer-settings {
@@ -35,6 +40,20 @@
         align-content: center;
         justify-content: center;
         align-items: center;
+    }
+    button {
+        font-size: bold;
+        text-transform: uppercase;
+        font-size: 3em;
+        padding: 0.2em;
+        color: white;
+        font-family: sans-serif, 'Courier New', Courier, monospace;
+    }
+    #start-btn{
+        background: green;
+    }
+    #break-btn{
+        background: red;
     }
     </style>
 </head>
