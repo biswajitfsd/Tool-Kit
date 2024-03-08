@@ -27,6 +27,15 @@
     font-family: 'digi-bold', 'Courier New', Courier, monospace;
 }
 
+#clock {
+    font-size: 10em;
+}
+
+#currentDate,
+#dayOfWeek {
+    font-family: 'digi-bold', 'Courier New', Courier, monospace;
+}
+
 #timer-settings {
     column-gap: 30px;
     display: flex;

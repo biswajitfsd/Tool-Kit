@@ -17,7 +17,7 @@ function updateClock() {
     document.getElementById('currentDate').textContent = currentDate;
 
     // Update the time in AM/PM format
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} <sub>${ampm}<sub>`;
 }
 
 // Update the clock every second
