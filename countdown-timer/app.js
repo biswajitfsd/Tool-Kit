@@ -1,7 +1,7 @@
 var timer_fun = function (time) {
     // Get the selected time from the dropdown
     var selectedMinutes = parseInt(time, 10);
-    var duration = ((selectedMinutes * 60) + 3) * 1000; // Convert minutes to milliseconds
+    var duration = ((selectedMinutes * 60) + 2) * 1000; // Convert minutes to milliseconds
     var startTime = Date.now();
 
     // Clear any existing interval to prevent multiple timers running
