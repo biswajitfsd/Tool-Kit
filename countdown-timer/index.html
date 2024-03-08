@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
-    <style>#countdown {
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+    }
+    #countdown {
         text-align: center;
-        margin-top: 50px;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
     }
     
     #timer {
@@ -16,6 +28,10 @@
 </head>
 <body>
     <div id="countdown">
+        <div id="time-picker-container">
+            <input type="time" id="time-picker">
+            <button id="start-btn">Start Countdown</button>
+        </div>
         <p id="timer"></p>
     </div>
 
