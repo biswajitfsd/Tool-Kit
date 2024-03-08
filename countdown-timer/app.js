@@ -1,14 +1,14 @@
-var timer_fun = function(time) {
+var timer_fun = function (time) {
     // Get the selected time from the dropdown
     var selectedMinutes = parseInt(time, 10);
-    var duration = selectedMinutes * 60 * 1000; // Convert minutes to milliseconds
+    var duration = ((selectedMinutes * 60) + 3) * 1000; // Convert minutes to milliseconds
     var startTime = Date.now();
 
     // Clear any existing interval to prevent multiple timers running
     clearInterval(window.timerInterval);
 
     // Start the timer
-    window.timerInterval = setInterval(function() {
+    window.timerInterval = setInterval(function () {
         var elapsedTime = Date.now() - startTime;
         var remainingTime = duration - elapsedTime;
 
