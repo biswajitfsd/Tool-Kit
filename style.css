@@ -21,6 +21,7 @@
     row-gap: 40px;
 }
 
+#clock,
 #timer {
     font-size: 12em;
     font-family: 'digi-bold', 'Courier New', Courier, monospace;
