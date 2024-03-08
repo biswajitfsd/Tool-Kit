@@ -1,69 +1,29 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+var timer = function(time) {
+    // Get the selected time from the dropdown
+    var selectedMinutes = parseInt(time, 10);
+    var duration = selectedMinutes * 60 * 1000; // Convert minutes to milliseconds
+    var startTime = Date.now();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    // Clear any existing interval to prevent multiple timers running
+    clearInterval(window.timerInterval);
 
-    // Get today's date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Display the result in the element with id="timer"
-    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is finished, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").innerHTML = "EXPIRED";
-    }
-}, 1000);
+    // Start the timer
+    window.timerInterval = setInterval(function() {
+        var elapsedTime = Date.now() - startTime;
+        var remainingTime = duration - elapsedTime;
 
-document.getElementById("start-btn").addEventListener("click", function() {
-    var selectedTime = document.getElementById("time-picker").value;
+        if (remainingTime >= 0) {
+            var minutes = Math.floor(remainingTime / (1000 * 60));
+            var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-    // Get current date
-    var currentDate = new Date();
-    var dateString = currentDate.toISOString().split('T')[0]; // Format as "YYYY-MM-DD"
-
-    // Combine current date with selected time
-    if (selectedTime) {
-        var countDownDateTime = new Date(dateString + "T" + selectedTime);
-
-        // Check if selected time is already past, adjust to next day
-        if (countDownDateTime <= currentDate) {
-            countDownDateTime.setDate(countDownDateTime.getDate() + 1);
+            // Display the remaining time in mm:ss format
+            document.getElementById("timer").innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        } else {
+            // When the timer ends
+            clearInterval(window.timerInterval);
+            document.getElementById("timer").innerHTML = "TIME UP";
         }
-    } else {
-        alert("Please select a time.");
-        return;
-    }
-
-    // Clear any existing countdown interval
-    clearInterval(window.countdownInterval);
-
-    // Start the countdown
-    window.countdownInterval = setInterval(function() {
-        var now = new Date().getTime();
-        var distance = countDownDateTime.getTime() - now;
-
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
-
-        if (distance < 0) {
-            clearInterval(window.countdownInterval);
-            document.getElementById("timer").innerHTML = "EXPIRED";
-        }
-    }, 1000);
-});
+    }, 1000); // Update every second
+};
+document.getElementById("start-btn").addEventListener("click", timer(25));
+document.getElementById("break-btn").addEventListener("click", timer(5));
