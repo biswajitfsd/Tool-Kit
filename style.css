@@ -47,14 +47,14 @@
 }
 
 button {
+    width: 60px;
     text-transform: uppercase;
-    font-size: 1em;
-    padding: 30px;
     color: #fefefe;
     font-family: sans-serif, 'Courier New', Courier, monospace;
     border-radius: 50%;
     outline: none;
     border: none;
+    height: 60px;
 }
 
 #start-btn {
@@ -84,4 +84,8 @@ button {
 
 .row2 {
     padding-top: 10px;
+}
+
+i.bi{
+    font-size: 30px;
 }
