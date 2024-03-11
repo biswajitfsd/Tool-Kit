@@ -3,10 +3,18 @@
     src: url(./fonts/ds_digital/DS-DIGIB.TTF);
 }
 
+:root {
+    --primary-colour: #4e4d4d;
+}
+
 * {
     margin: 0;
     padding: 0;
     outline: 0;
+}
+
+body {
+    color: var(--primary-colour);
 }
 
 #countdown {
@@ -85,6 +93,6 @@ button {
     padding-top: 10px;
 }
 
-i.bi{
+i.bi {
     font-size: 40px;
 }
