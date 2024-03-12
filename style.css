@@ -111,7 +111,7 @@ i.bi {
     display: flex;
     padding: 10px;
     flex-direction: column;
-    top: 40%;
+    top: 5%;
     transform: translateY(-50%);
     flex-wrap: nowrap;
 }
