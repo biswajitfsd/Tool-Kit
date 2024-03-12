@@ -1,11 +1,39 @@
-const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
 var r = document.querySelector(':root');
-darkThemeMq.addListener(e => {
-    if (e.matches) {
-        // Theme set to dark.
+var body = document.querySelector('body');
+// Function to check if the system theme is dark
+function checkSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // System theme is dark
         r.style.setProperty('--primary-colour', '#fefefe');
+        body.style.setProperty('background', '4e4d4d');
+        return 'dark';
     } else {
-        // Theme set to light.
+        // System theme is light or not specified
         r.style.setProperty('--primary-colour', "#4e4d4d");
+        body.style.setProperty('background', '#fefefe');
+        return 'light';
     }
-});
+}
+
+// Call the function to check the system theme
+const systemTheme = checkSystemTheme();
+console.log(systemTheme); // Output will be 'dark' or 'light'
+// Listen for changes in the system theme
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Function to handle the change event
+function handleThemeChange(event) {
+    if (event.matches) {
+        r.style.setProperty('--primary-colour', '#fefefe');
+        body.style.setProperty('background', '4e4d4d');
+    } else {
+        r.style.setProperty('--primary-colour', "#4e4d4d");
+        body.style.setProperty('background', '#fefefe');
+    }
+}
+
+// Add the event listener
+mediaQuery.addListener(handleThemeChange);
+
+// Initial check
+handleThemeChange(mediaQuery);
