@@ -1,16 +1,19 @@
 var r = document.querySelector(':root');
 var body = document.querySelector('body');
+
 // Function to check if the system theme is dark
 function checkSystemTheme() {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         // System theme is dark
         r.style.setProperty('--primary-colour', '#fefefe');
-        body.style.setProperty('background', '4e4d4d');
+        body.style.setProperty('--body-bg', '#4e4d4d');
+        updateTheme(true);
         return 'dark';
     } else {
         // System theme is light or not specified
         r.style.setProperty('--primary-colour', "#4e4d4d");
-        body.style.setProperty('background', '#fefefe');
+        body.style.setProperty('--body-bg', '#fefefe');
+        updateTheme(false);
         return 'light';
     }
 }
@@ -25,10 +28,12 @@ const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 function handleThemeChange(event) {
     if (event.matches) {
         r.style.setProperty('--primary-colour', '#fefefe');
-        body.style.setProperty('background', '4e4d4d');
+        body.style.setProperty('--body-bg', '#4e4d4d');
+        updateTheme(true);
     } else {
         r.style.setProperty('--primary-colour', "#4e4d4d");
-        body.style.setProperty('background', '#fefefe');
+        body.style.setProperty('--body-bg', '#fefefe');
+        updateTheme(false);
     }
 }
 
@@ -37,3 +42,20 @@ mediaQuery.addListener(handleThemeChange);
 
 // Initial check
 handleThemeChange(mediaQuery);
+
+
+function updateTheme(checked) {
+    if (checked) {
+        r.style.setProperty('--primary-colour', '#fefefe');
+        body.style.setProperty('--body-bg', '#4e4d4d');
+        document.getElementById('themeToggle').checked = true;
+    } else {
+        r.style.setProperty('--primary-colour', "#4e4d4d");
+        body.style.setProperty('--body-bg', '#fefefe');
+        document.getElementById('themeToggle').checked = false;
+    }
+}
+
+document.getElementById('themeToggle').addEventListener('change', function () {
+    updateTheme(this.checked);
+});

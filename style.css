@@ -6,6 +6,8 @@
 :root {
     color-scheme: dark;
     --primary-colour: #4e4d4d;
+    --body-bg: rgba(0, 0, 0, 0);
+    --icon-bg: #333;
 }
 
 * {
@@ -16,6 +18,7 @@
 
 body {
     color: var(--primary-colour);
+    background: var(--body-bg);
 }
 
 #countdown {
@@ -74,14 +77,15 @@ button {
 }
 
 #clcok-block {
-    width: calc(100% - 62px);
-    padding: 20px 20px 0px;
-    border: 2px solid black;
+    min-width: 270px;
+    max-width: calc(100% - 62px);
+    padding: 20px 20px 5px;
+    border: 2px solid var(--primary-colour);
     border-radius: 20px;
 }
 
 .row1 {
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted var(--primary-colour);
     padding-bottom: 5px;
     display: flex;
     flex-direction: row;
@@ -96,4 +100,123 @@ button {
 
 i.bi {
     font-size: 40px;
+}
+
+/*Floating Menu*/
+.floating-menu {
+    position: fixed;
+    right: 0;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    top: 40%;
+    transform: translateY(-50%);
+    flex-wrap: nowrap;
+}
+
+.floating-menu:nth-child(2) {
+    top: 50%;
+}
+
+.floating-menu a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: var(--icon-bg);
+    border-radius: 50%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.floating-menu i {
+    font-size: 20px; /* Adjust icon size as needed */
+}
+
+.content {
+    padding: 60px 10px 10px 10px; /* Add top padding to make content visible below the menu */
+}
+
+/*Theme switch*/
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+}
+
+.switch:before, .switch .icon {
+    transition: 0.4s;
+}
+
+.switch:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input:checked + .switch {
+    background-color: #2196F3;
+}
+
+input:checked + .switch:before {
+    transform: translateX(26px);
+}
+
+.icon {
+    display: none;
+    position: absolute;
+    color: white;
+}
+
+.icon.light {
+    left: 6px;
+    top: 5px
+}
+
+.icon.dark {
+    right: 6px;
+    top: 5px;
+}
+
+input:checked + .switch .icon.light {
+    display: none;
+}
+
+input:checked + .switch .icon.dark {
+    display: block;
+}
+
+input:not(:checked) + .switch .icon.light {
+    display: block;
+}
+
+input:not(:checked) + .switch .icon.dark {
+    display: none;
 }
