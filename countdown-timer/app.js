@@ -1,27 +1,42 @@
-var timer_fun = function (time) {
-    // Get the selected time from the dropdown
-    var selectedMinutes = parseInt(time, 10);
-    var duration = ((selectedMinutes * 60) + 2) * 1000; // Convert minutes to milliseconds
-    var startTime = Date.now();
+var timer = {
+    intervalId: null,
+    remainingTime: 0,
+    isPaused: false,
 
-    // Clear any existing interval to prevent multiple timers running
-    clearInterval(window.timerInterval);
-
-    // Start the timer
-    window.timerInterval = setInterval(function () {
-        var elapsedTime = Date.now() - startTime;
-        var remainingTime = duration - elapsedTime;
-
-        if (remainingTime >= 0) {
-            var minutes = Math.floor(remainingTime / (1000 * 60));
-            var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-            // Display the remaining time in mm:ss format
-            document.getElementById("timer").innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        } else {
-            // When the timer ends
-            clearInterval(window.timerInterval);
-            document.getElementById("timer").innerHTML = "TIME UP";
+    start: function(time) {
+        this.remainingTime = ((parseInt(time, 10) * 60) + 2) * 1000;
+        
+        if (this.intervalId !== null) {
+            this.clear();
         }
-    }, 1000); // Update every second
-}
+        
+        var tick = function() {
+            if (!this.isPaused && this.remainingTime > 0) {
+                this.remainingTime -= 1000;
+                var minutes = Math.floor(this.remainingTime / (1000 * 60));
+                var seconds = Math.floor((this.remainingTime % (1000 * 60)) / 1000);
+                
+                document.getElementById("timer").innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            } else if (this.remainingTime <= 0) {
+                document.getElementById("timer").innerHTML = "TIME UP";
+                this.clear();
+            }
+        };
+        
+        tick = tick.bind(this);
+        this.intervalId = setInterval(tick, 1000);
+    },
+
+    pause: function() {
+        this.isPaused = true;
+    },
+
+    resume: function() {
+        this.isPaused = false;
+    },
+
+    clear: function() {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+    }
+};

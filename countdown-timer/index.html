@@ -29,8 +29,10 @@
 <div id="countdown">
     <h1 id="timer">25:00</h1>
     <div id="timer-settings">
-        <button id="start-btn" type="button" onclick="timer_fun(25)"><i class="bi bi-play-circle-fill"></i></button>
-        <button id="break-btn" type="button" onclick="timer_fun(5)"><i class="bi bi-sign-stop-fill"></i></button>
+        <button id="start-btn" type="button" onclick="timer.start('25')"><i class="fas fa-solid fa-play"></i></button>
+        <button id="pause-btn" type="button" onclick="timer.pause()"><i class="fas fa-solid fa-pause"></i></button>
+        <button id="pause-btn" type="button" onclick="timer.resume()"><i class="fas fa-solid fa-play"></i></button>
+        <button id="break-btn" type="button" onclick="timer.start('5')"><i class="fas fa-solid fa-stop"></i></button>
     </div>
 </div>
 

@@ -73,6 +73,10 @@ button {
     background: #009688;
 }
 
+#pause-btn {
+    background: #4c4386;
+}
+
 #break-btn {
     background: #F44336;
 }
