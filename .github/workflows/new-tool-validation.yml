@@ -95,9 +95,9 @@ jobs:
                       exit 1
                     fi
 
-                    # Check for common.css reference
-                    if ! grep -q 'common.css' "$html_file"; then
-                      echo "❌ Missing common.css reference"
+                    # Check for style.css reference
+                    if ! grep -q 'style.css' "$html_file"; then
+                      echo "❌ Missing style.css reference"
                       exit 1
                     fi
 
