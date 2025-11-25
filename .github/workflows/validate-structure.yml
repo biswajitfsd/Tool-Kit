@@ -183,7 +183,7 @@ jobs:
                   echo "🔍 Validating CSS files..."
 
                   # Check if common.css has required CSS variables
-                  if [ -f "common.css" ]; then
+                  if [ -f "style.css" ]; then
                     required_vars=(
                       "--primary-colour"
                       "--body-bg"
