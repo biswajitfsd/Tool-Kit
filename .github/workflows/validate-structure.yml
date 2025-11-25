@@ -22,7 +22,7 @@ jobs:
                   required_files=(
                     "index.html"
                     "index.js"
-                    "common.css"
+                    "style.css"
                     "home.css"
                     "README.md"
                     "STRUCTURE.md"
@@ -167,8 +167,8 @@ jobs:
                         exit 1
                       fi
 
-                      if ! grep -q 'common.css' "$file"; then
-                        echo "❌ Missing common.css reference in $file"
+                      if ! grep -q 'style.css' "$file"; then
+                        echo "❌ Missing style.css reference in $file"
                         exit 1
                       fi
 
@@ -182,7 +182,7 @@ jobs:
               run: |
                   echo "🔍 Validating CSS files..."
 
-                  # Check if common.css has required CSS variables
+                  # Check if style.css has required CSS variables
                   if [ -f "style.css" ]; then
                     required_vars=(
                       "--primary-colour"
@@ -194,13 +194,13 @@ jobs:
                     )
 
                     for var in "${required_vars[@]}"; do
-                      if ! grep -q "$var" "common.css"; then
-                        echo "❌ Missing CSS variable in common.css: $var"
+                      if ! grep -q "$var" "style.css"; then
+                        echo "❌ Missing CSS variable in style.css: $var"
                         exit 1
                       fi
                     done
 
-                    echo "✅ common.css has all required variables"
+                    echo "✅ style.css has all required variables"
                   fi
 
                   echo "✅ CSS validation passed!"
