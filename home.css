@@ -150,20 +150,6 @@
     color: var(--accent-color);
 }
 
-/* Tool Description */
-.toolkit-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.toolkit-card:hover .toolkit-description {
-    opacity: 1;
-}
-
 /* Tool Arrow */
 .toolkit-arrow {
     position: absolute;

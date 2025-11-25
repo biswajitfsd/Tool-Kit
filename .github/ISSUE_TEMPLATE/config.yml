@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+    - name: 💬 General Discussion
+      url: https://github.com/biswajitfsd/tool-kit/discussions
+      about: Ask questions, share ideas, or discuss the project
+    - name: 📖 Documentation
+      url: https://github.com/biswajitfsd/tool-kit/blob/main/README.md
+      about: Read the project documentation
+    - name: 🌐 Live Demo
+      url: https://tools.biswajit.online
+      about: Try out the live toolkit

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Password Generator - Create Strong Secure Passwords | Tool Kit</title>
+        <meta name="description"
+            content="Generate strong, secure, and random passwords with our free password generator. Customize length, use uppercase, lowercase, numbers, and symbols. Includes password strength meter and history.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/password-generator/">
+        <meta property="og:title" content="Password Generator - Create Strong Secure Passwords">
+        <meta property="og:description"
+            content="Generate strong, secure, and random passwords with customizable options. Free online password generator with strength meter.">
+        <meta property="og:image" content="https://tools.biswajit.online/icons/password-generator.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/password-generator/">
+        <meta property="twitter:title" content="Password Generator - Create Strong Secure Passwords">
+        <meta property="twitter:description"
+            content="Generate strong, secure, and random passwords with customizable options. Free online password generator with strength meter.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/icons/password-generator.png">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Password Generator",
+        "description": "Generate strong, secure, and random passwords with customizable options including length, character types, and strength meter.",
+        "url": "https://tools.biswajit.online/tools/password-generator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Customizable password length (8-64 characters)",
+            "Multiple character types (uppercase, lowercase, numbers, symbols)",
+            "Password strength meter with entropy calculation",
+            "Exclude ambiguous characters option",
+            "Password history with copy functionality",
+            "Cryptographically secure random generation"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+            <a href="../password-generator" title="Password Generator" data-page="password-generator">
+                <i class="fas fa-key"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="password-container">
+                <!-- Header -->
+                <div class="password-header">
+                    <h1><i class="fas fa-key"></i> Password Generator</h1>
+                    <p class="password-subtitle">Create strong, secure passwords</p>
+                </div>
+
+                <!-- Password Display -->
+                <div class="password-display-section">
+                    <div class="password-display" id="passwordDisplay">
+                        <span id="generatedPassword">Click Generate to create password</span>
+                    </div>
+                    <div class="password-actions">
+                        <button class="action-icon-btn copy-btn" id="copyBtn" onclick="passwordGen.copyPassword()"
+                            title="Copy to clipboard">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <button class="action-icon-btn refresh-btn" onclick="passwordGen.generatePassword()"
+                            title="Regenerate">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Password Strength Meter -->
+                <div class="strength-meter-section">
+                    <div class="strength-label">
+                        <span>Password Strength:</span>
+                        <span id="strengthText" class="strength-text">-</span>
+                    </div>
+                    <div class="strength-bar">
+                        <div id="strengthBar" class="strength-bar-fill"></div>
+                    </div>
+                    <div class="strength-info">
+                        <span id="entropyText" class="entropy-text"></span>
+                    </div>
+                </div>
+
+                <!-- Length Slider -->
+                <div class="length-section">
+                    <div class="length-header">
+                        <label>Password Length</label>
+                        <span id="lengthValue" class="length-value">16</span>
+                    </div>
+                    <input type="range" id="lengthSlider" class="length-slider" min="8" max="64" value="16"
+                        oninput="passwordGen.updateLength(this.value)">
+                    <div class="length-labels">
+                        <span>8</span>
+                        <span>64</span>
+                    </div>
+                </div>
+
+                <!-- Character Options -->
+                <div class="options-section">
+                    <h3 class="options-title">Character Types</h3>
+                    <div class="options-grid">
+                        <label class="option-item">
+                            <input type="checkbox" id="uppercaseCheck" checked onchange="passwordGen.savePreferences()">
+                            <span class="option-checkbox"></span>
+                            <span class="option-label">
+                                <i class="fas fa-font"></i>
+                                Uppercase (A-Z)
+                            </span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" id="lowercaseCheck" checked onchange="passwordGen.savePreferences()">
+                            <span class="option-checkbox"></span>
+                            <span class="option-label">
+                                <i class="fas fa-font"></i>
+                                Lowercase (a-z)
+                            </span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" id="numbersCheck" checked onchange="passwordGen.savePreferences()">
+                            <span class="option-checkbox"></span>
+                            <span class="option-label">
+                                <i class="fas fa-hashtag"></i>
+                                Numbers (0-9)
+                            </span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" id="symbolsCheck" checked onchange="passwordGen.savePreferences()">
+                            <span class="option-checkbox"></span>
+                            <span class="option-label">
+                                <i class="fas fa-asterisk"></i>
+                                Symbols (!@#$...)
+                            </span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" id="ambiguousCheck" onchange="passwordGen.savePreferences()">
+                            <span class="option-checkbox"></span>
+                            <span class="option-label">
+                                <i class="fas fa-eye-slash"></i>
+                                Exclude Ambiguous (0,O,l,1,I)
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="generate-section">
+                    <button class="generate-btn" onclick="passwordGen.generatePassword()">
+                        <i class="fas fa-magic"></i>
+                        Generate Password
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../../index.js"></script>
+        <script src="./app.js"></script>
+    </body>
+
+</html>

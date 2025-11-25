@@ -1,0 +1,244 @@
+name: File Structure Validation
+
+on:
+    pull_request:
+        branches: [main, develop]
+    push:
+        branches: [main, develop]
+
+jobs:
+    validate-structure:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Validate Root Structure
+              run: |
+                  echo "🔍 Validating root directory structure..."
+
+                  # Check required root files
+                  required_files=(
+                    "index.html"
+                    "index.js"
+                    "style.css"
+                    "home.css"
+                    "README.md"
+                    "STRUCTURE.md"
+                    "sitemap.xml"
+                    "robots.txt"
+                    "404.html"
+                    ".editorconfig"
+                    ".gitignore"
+                  )
+
+                  for file in "${required_files[@]}"; do
+                    if [ ! -f "$file" ]; then
+                      echo "❌ Missing required file: $file"
+                      exit 1
+                    else
+                      echo "✅ Found: $file"
+                    fi
+                  done
+
+                  # Check required directories
+                  required_dirs=(
+                    ".github"
+                    ".vscode"
+                    "tools"
+                    "fonts"
+                  )
+
+                  for dir in "${required_dirs[@]}"; do
+                    if [ ! -d "$dir" ]; then
+                      echo "❌ Missing required directory: $dir"
+                      exit 1
+                    else
+                      echo "✅ Found: $dir/"
+                    fi
+                  done
+
+                  echo "✅ Root structure validation passed!"
+
+            - name: Validate VS Code Configuration
+              run: |
+                  echo "🔍 Validating VS Code configuration..."
+
+                  vscode_files=(
+                    ".vscode/settings.json"
+                    ".vscode/extensions.json"
+                    ".vscode/keybindings.json"
+                  )
+
+                  for file in "${vscode_files[@]}"; do
+                    if [ ! -f "$file" ]; then
+                      echo "❌ Missing VS Code config: $file"
+                      exit 1
+                    else
+                      echo "✅ Found: $file"
+                    fi
+                  done
+
+                  echo "✅ VS Code configuration validation passed!"
+
+            - name: Validate GitHub Templates
+              run: |
+                  echo "🔍 Validating GitHub issue templates..."
+
+                  github_files=(
+                    ".github/ISSUE_TEMPLATE/new-tool-request.md"
+                    ".github/ISSUE_TEMPLATE/bug-report.md"
+                    ".github/ISSUE_TEMPLATE/feature-request.md"
+                    ".github/ISSUE_TEMPLATE/config.yml"
+                  )
+
+                  for file in "${github_files[@]}"; do
+                    if [ ! -f "$file" ]; then
+                      echo "❌ Missing GitHub template: $file"
+                      exit 1
+                    else
+                      echo "✅ Found: $file"
+                    fi
+                  done
+
+                  echo "✅ GitHub templates validation passed!"
+
+            - name: Validate Tool Structure
+              run: |
+                  echo "🔍 Validating tools directory structure..."
+
+                  # Check if tools directory exists
+                  if [ ! -d "tools" ]; then
+                    echo "❌ tools/ directory not found"
+                    exit 1
+                  fi
+
+                  # Get all tool directories
+                  tool_dirs=$(find tools -mindepth 1 -maxdepth 1 -type d)
+
+                  if [ -z "$tool_dirs" ]; then
+                    echo "⚠️  No tools found in tools/ directory"
+                    exit 0
+                  fi
+
+                  # Validate each tool has required files
+                  for tool_dir in $tool_dirs; do
+                    tool_name=$(basename "$tool_dir")
+                    echo "📁 Validating tool: $tool_name"
+
+                    required_tool_files=(
+                      "$tool_dir/index.html"
+                      "$tool_dir/style.css"
+                      "$tool_dir/app.js"
+                    )
+
+                    for file in "${required_tool_files[@]}"; do
+                      if [ ! -f "$file" ]; then
+                        echo "❌ Missing required file in $tool_name: $(basename $file)"
+                        exit 1
+                      else
+                        echo "  ✅ Found: $(basename $file)"
+                      fi
+                    done
+                  done
+
+                  echo "✅ All tools have correct structure!"
+
+            - name: Validate HTML Files
+              run: |
+                  echo "🔍 Validating HTML files..."
+
+                  # Find all HTML files
+                  html_files=$(find . -name "*.html" -not -path "./node_modules/*")
+
+                  for file in $html_files; do
+                    echo "📄 Checking: $file"
+
+                    # Check for required meta tags in tool HTML files
+                    if [[ $file == *"/tools/"* ]]; then
+                      if ! grep -q '<meta charset="UTF-8">' "$file"; then
+                        echo "❌ Missing UTF-8 charset in $file"
+                        exit 1
+                      fi
+
+                      if ! grep -q '<meta name="viewport"' "$file"; then
+                        echo "❌ Missing viewport meta tag in $file"
+                        exit 1
+                      fi
+
+                      if ! grep -q 'style.css' "$file"; then
+                        echo "❌ Missing style.css reference in $file"
+                        exit 1
+                      fi
+
+                      echo "  ✅ HTML validation passed"
+                    fi
+                  done
+
+                  echo "✅ All HTML files validated!"
+
+            - name: Validate CSS Files
+              run: |
+                  echo "🔍 Validating CSS files..."
+
+                  # Check if style.css has required CSS variables
+                  if [ -f "style.css" ]; then
+                    required_vars=(
+                      "--primary-colour"
+                      "--body-bg"
+                      "--card-bg"
+                      "--accent-color"
+                      "--text-secondary"
+                      "--border-color"
+                    )
+
+                    for var in "${required_vars[@]}"; do
+                      if ! grep -q "$var" "style.css"; then
+                        echo "❌ Missing CSS variable in style.css: $var"
+                        exit 1
+                      fi
+                    done
+
+                    echo "✅ style.css has all required variables"
+                  fi
+
+                  echo "✅ CSS validation passed!"
+
+            - name: Validate JavaScript Files
+              run: |
+                  echo "🔍 Validating JavaScript files..."
+
+                  # Find all JS files in tools
+                  js_files=$(find tools -name "app.js" 2>/dev/null || true)
+
+                  for file in $js_files; do
+                    echo "📄 Checking: $file"
+
+                    # Basic validation - check file is not empty
+                    if [ ! -s "$file" ]; then
+                      echo "❌ Empty JavaScript file: $file"
+                      exit 1
+                    fi
+
+                    echo "  ✅ JavaScript file validated"
+                  done
+
+                  echo "✅ JavaScript validation passed!"
+
+            - name: Summary
+              if: success()
+              run: |
+                  echo ""
+                  echo "=================================="
+                  echo "✅ ALL VALIDATIONS PASSED! 🎉"
+                  echo "=================================="
+                  echo ""
+                  echo "✅ Root structure validated"
+                  echo "✅ VS Code configuration validated"
+                  echo "✅ GitHub templates validated"
+                  echo "✅ Tool structure validated"
+                  echo "✅ HTML files validated"
+                  echo "✅ CSS files validated"
+                  echo "✅ JavaScript files validated"
+                  echo ""

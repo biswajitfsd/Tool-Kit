@@ -4,14 +4,119 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tool Kit</title>
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Tool Kit - Free Online Productivity Tools Collection</title>
+        <meta name="description"
+            content="Free online productivity tools including Pomodoro timer, digital clock, todo list, password generator, calculator, and more. All tools work offline with no sign-up required.">
+        <meta name="author" content="Biswajit">
+        <meta name="keywords"
+            content="online tools, productivity tools, free tools, pomodoro timer, todo list, password generator, calculator, unit converter, web tools">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/">
+        <meta property="og:title" content="Tool Kit - Free Online Productivity Tools">
+        <meta property="og:description"
+            content="Free online productivity tools including Pomodoro timer, digital clock, todo list, password generator, and more. All tools work offline with no sign-up required.">
+        <meta property="og:image" content="https://tools.biswajit.online/icons/toolkit-og.png">
+        <meta property="og:site_name" content="Tool Kit">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/">
+        <meta property="twitter:title" content="Tool Kit - Free Online Productivity Tools">
+        <meta property="twitter:description"
+            content="Free online productivity tools including Pomodoro timer, digital clock, todo list, password generator, and more.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/icons/toolkit-twitter.png">
+
+        <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet" href="./home.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Tool Kit",
+            "description": "Collection of free online productivity tools for everyday use",
+            "url": "https://tools.biswajit.online/",
+            "author": {
+                "@type": "Person",
+                "name": "Biswajit"
+            },
+            "offers": {
+                "@type": "AggregateOffer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Productivity Tools",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "WebApplication",
+                            "name": "Pomodoro Timer",
+                            "url": "https://tools.biswajit.online/tools/countdown-timer/",
+                            "applicationCategory": "UtilitiesApplication"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "WebApplication",
+                            "name": "Digital Clock",
+                            "url": "https://tools.biswajit.online/tools/clock/",
+                            "applicationCategory": "UtilitiesApplication"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "WebApplication",
+                            "name": "Todo List",
+                            "url": "https://tools.biswajit.online/tools/todo/",
+                            "applicationCategory": "UtilitiesApplication"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "WebApplication",
+                            "name": "Password Generator",
+                            "url": "https://tools.biswajit.online/tools/password-generator/",
+                            "applicationCategory": "UtilitiesApplication"
+                        }
+                    }
+                ]
+            }
+        }
+        </script>
     </head>
 
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <!-- Floating Menu -->
         <div class="floating-menu">
             <label class="toggle-switch">
@@ -24,16 +129,16 @@
         </div>
 
         <div class="floating-menu" id="floatingNav">
-            <a href="./index.html" title="Home" data-page="home">
+            <a href="./" title="Home" data-page="home">
                 <i class="fas fa-home"></i>
             </a>
             <a href="./tools/countdown-timer" title="Countdown" data-page="countdown">
                 <i class="fas fa-hourglass-half"></i>
             </a>
-            <a href="./tools/clock/" title="Clock" data-page="clock">
+            <a href="./tools/clock" title="Clock" data-page="clock">
                 <i class="fas fa-clock"></i>
             </a>
-            <a href="./tools/todo/" title="Todo List" data-page="todo">
+            <a href="./tools/todo" title="Todo List" data-page="todo">
                 <i class="fas fa-tasks"></i>
             </a>
         </div>
@@ -55,7 +160,6 @@
                         <i class="fas fa-hourglass-half toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Pomodoro Timer</h3>
-                    <p class="toolkit-description">Focus timer with presets and break management</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -67,7 +171,6 @@
                         <i class="fas fa-clock toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Digital Clock</h3>
-                    <p class="toolkit-description">View current time with elegant display</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -79,7 +182,6 @@
                         <i class="fas fa-tasks toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Todo List</h3>
-                    <p class="toolkit-description">Manage your tasks and stay organized</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -91,7 +193,6 @@
                         <i class="fas fa-stopwatch toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Stopwatch</h3>
-                    <p class="toolkit-description">Track elapsed time with lap functionality</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -103,7 +204,6 @@
                         <i class="fas fa-calculator toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Calculator</h3>
-                    <p class="toolkit-description">Perform quick calculations</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -115,7 +215,6 @@
                         <i class="fas fa-key toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Password Generator</h3>
-                    <p class="toolkit-description">Create strong secure passwords</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -127,7 +226,6 @@
                         <i class="fas fa-exchange-alt toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Unit Converter</h3>
-                    <p class="toolkit-description">Convert between different units</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -139,7 +237,6 @@
                         <i class="fas fa-weight toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">BMI Calculator</h3>
-                    <p class="toolkit-description">Calculate body mass index</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -151,7 +248,6 @@
                         <i class="fas fa-wind toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Breathing Exercise</h3>
-                    <p class="toolkit-description">Guided breathing relaxation</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -163,7 +259,6 @@
                         <i class="fas fa-link toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">URL Encoder</h3>
-                    <p class="toolkit-description">Encode and decode URLs</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -175,7 +270,6 @@
                         <i class="fas fa-code toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">JSON Formatter</h3>
-                    <p class="toolkit-description">Format and validate JSON</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -187,7 +281,6 @@
                         <i class="fas fa-file-code toolkit-icon"></i>
                     </div>
                     <h3 class="toolkit-title">Base64 Encoder</h3>
-                    <p class="toolkit-description">Encode decode Base64</p>
                     <div class="toolkit-arrow">
                         <i class="fas fa-arrow-right"></i>
                     </div>

@@ -1,5 +1,4 @@
 {
-    // Editor Settings
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
@@ -22,7 +21,6 @@
     "editor.quickSuggestions": {
         "strings": true
     },
-    // File Settings
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
     "files.trimTrailingWhitespace": true,
@@ -33,7 +31,6 @@
         "*.js": "javascript",
         "*.html": "html"
     },
-    // HTML Settings
     "html.format.indentInnerHtml": true,
     "html.format.wrapLineLength": 120,
     "html.format.wrapAttributes": "auto",
@@ -42,13 +39,11 @@
         "editor.tabSize": 4,
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    // CSS Settings
     "css.format.spaceAroundSelectorSeparator": true,
     "[css]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    // JavaScript Settings
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
     "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -56,17 +51,14 @@
         "editor.tabSize": 4,
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    // Emmet Settings
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
     "emmet.triggerExpansionOnTab": true,
-    // Live Server Settings (if using Live Server extension)
     "liveServer.settings.donotShowInfoMsg": true,
     "liveServer.settings.port": 5500,
     "liveServer.settings.CustomBrowser": "chrome",
     "liveServer.settings.donotVerifyTags": true,
-    // Prettier Settings (if using Prettier extension)
     "prettier.tabWidth": 4,
     "prettier.useTabs": false,
     "prettier.singleQuote": true,
@@ -75,26 +67,21 @@
     "prettier.trailingComma": "es5",
     "prettier.bracketSpacing": true,
     "prettier.arrowParens": "avoid",
-    // Search Settings
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
         "**/.git": true,
         "**/.DS_Store": true
     },
-    // Explorer Settings
     "explorer.compactFolders": false,
     "explorer.confirmDelete": true,
     "explorer.confirmDragAndDrop": true,
-    // Git Settings
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    // Workbench Settings
     "workbench.colorTheme": "Default Dark+",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
-    // Terminal Settings
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.fontFamily": "monospace"
 }
