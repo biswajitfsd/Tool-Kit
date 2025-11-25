@@ -1,6 +1,4 @@
 [
-    // ===== JetBrains IDE Keymap for VS Code =====
-    // Navigation
     {
         "key": "ctrl+b",
         "command": "workbench.action.navigateBack"
@@ -34,7 +32,6 @@
         "key": "ctrl+shift+a",
         "command": "workbench.action.showCommands"
     },
-    // Editing
     {
         "key": "ctrl+d",
         "command": "editor.action.duplicateSelection"
@@ -79,7 +76,6 @@
         "command": "editor.action.insertCursorBelow",
         "when": "editorTextFocus"
     },
-    // Code Formatting
     {
         "key": "ctrl+alt+l",
         "command": "editor.action.formatDocument",
@@ -95,7 +91,6 @@
         "command": "editor.action.organizeImports",
         "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
     },
-    // Code Completion & Suggestions
     {
         "key": "ctrl+space",
         "command": "editor.action.triggerSuggest",
@@ -111,7 +106,6 @@
         "command": "editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
-    // Refactoring
     {
         "key": "ctrl+alt+shift+t",
         "command": "editor.action.refactor",
@@ -127,7 +121,6 @@
         "command": "editor.action.changeAll",
         "when": "editorTextFocus && !editorReadonly"
     },
-    // Search & Replace
     {
         "key": "ctrl+f",
         "command": "actions.find"
@@ -154,7 +147,6 @@
         "command": "editor.action.previousMatchFindAction",
         "when": "editorFocus"
     },
-    // File Management
     {
         "key": "ctrl+alt+insert",
         "command": "explorer.newFile"
@@ -176,7 +168,6 @@
         "key": "ctrl+shift+s",
         "command": "workbench.action.files.saveAs"
     },
-    // View Management
     {
         "key": "alt+1",
         "command": "workbench.view.explorer"
@@ -205,7 +196,6 @@
         "key": "shift+escape",
         "command": "workbench.action.toggleSidebarVisibility"
     },
-    // Code Navigation
     {
         "key": "ctrl+b",
         "command": "editor.action.revealDefinition",
@@ -244,7 +234,6 @@
         "key": "ctrl+alt+shift+n",
         "command": "workbench.action.showAllSymbols"
     },
-    // Comments
     {
         "key": "ctrl+/",
         "command": "editor.action.commentLine",
@@ -255,7 +244,6 @@
         "command": "editor.action.blockComment",
         "when": "editorTextFocus && !editorReadonly"
     },
-    // Run & Debug
     {
         "key": "shift+f10",
         "command": "workbench.action.debug.start",
@@ -291,7 +279,6 @@
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "debuggersAvailable && editorTextFocus"
     },
-    // Git/VCS
     {
         "key": "ctrl+k",
         "command": "git.commit"
@@ -308,7 +295,6 @@
         "key": "alt+9",
         "command": "workbench.view.scm"
     },
-    // Terminal
     {
         "key": "alt+f12",
         "command": "workbench.action.terminal.toggleTerminal"
@@ -317,7 +303,6 @@
         "key": "ctrl+shift+f12",
         "command": "workbench.action.terminal.new"
     },
-    // Tab Management
     {
         "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
@@ -343,7 +328,6 @@
         "key": "alt+left",
         "command": "workbench.action.previousEditor"
     },
-    // Select & Extend
     {
         "key": "ctrl+g",
         "command": "editor.action.addSelectionToNextFindMatch",
@@ -359,12 +343,10 @@
         "command": "editor.action.addSelectionToNextFindMatch",
         "when": "editorFocus"
     },
-    // Build/Compile (if applicable)
     {
         "key": "ctrl+f9",
         "command": "workbench.action.tasks.build"
     },
-    // Folding
     {
         "key": "ctrl+numpad_add",
         "command": "editor.unfold",
@@ -395,7 +377,6 @@
         "command": "editor.fold",
         "when": "editorTextFocus"
     },
-    // Problems/Errors
     {
         "key": "f2",
         "command": "editor.action.marker.nextInFiles",
@@ -406,7 +387,6 @@
         "command": "editor.action.marker.prevInFiles",
         "when": "editorFocus"
     },
-    // Bookmarks (requires Bookmarks extension)
     {
         "key": "f11",
         "command": "bookmarks.toggle",

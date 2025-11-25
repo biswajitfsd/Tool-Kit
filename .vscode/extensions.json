@@ -1,28 +1,21 @@
 {
     "recommendations": [
-        // JetBrains Experience
         "k--kato.intellij-idea-keybindings",
-        // Essential Web Development
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "ritwickdey.liveserver",
-        // HTML & CSS
         "ecmel.vscode-html-css",
         "zignd.html-css-class-completion",
         "pranaygp.vscode-css-peek",
-        // JavaScript
         "xabikos.javascriptsnippets",
         "christian-kohler.path-intellisense",
-        // Git
         "eamodio.gitlens",
-        // Utilities
         "formulahendry.auto-rename-tag",
         "formulahendry.auto-close-tag",
         "naumovs.color-highlight",
         "oderwat.indent-rainbow",
         "pkief.material-icon-theme",
         "alefragnani.bookmarks",
-        // Formatting
         "editorconfig.editorconfig"
     ]
 }
