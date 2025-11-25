@@ -16,6 +16,7 @@
         "oderwat.indent-rainbow",
         "pkief.material-icon-theme",
         "alefragnani.bookmarks",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "github.vscode-github-actions"
     ]
 }
