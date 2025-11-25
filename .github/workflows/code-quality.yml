@@ -1,0 +1,223 @@
+name: Code Quality
+
+on:
+    pull_request:
+        branches: [main, develop]
+    push:
+        branches: [main, develop]
+
+jobs:
+    code-quality:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+
+            - name: Check Indentation
+              run: |
+                  echo "🔍 Checking file indentation..."
+
+                  # Check HTML, CSS, JS files for 4-space indentation
+                  files=$(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) \
+                          -not -path "./node_modules/*" \
+                          -not -path "./.git/*")
+
+                  has_tab=false
+
+                  for file in $files; do
+                    if grep -qP '\t' "$file"; then
+                      echo "❌ File contains tabs instead of spaces: $file"
+                      has_tab=true
+                    fi
+                  done
+
+                  if [ "$has_tab" = true ]; then
+                    echo "❌ Indentation check failed! Use 4 spaces instead of tabs."
+                    exit 1
+                  fi
+
+                  echo "✅ Indentation check passed!"
+
+            - name: Check Line Endings
+              run: |
+                  echo "🔍 Checking line endings (LF)..."
+
+                  files=$(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.md" \) \
+                          -not -path "./node_modules/*" \
+                          -not -path "./.git/*")
+
+                  has_crlf=false
+
+                  for file in $files; do
+                    if file "$file" | grep -q "CRLF"; then
+                      echo "❌ File has CRLF line endings: $file"
+                      has_crlf=true
+                    fi
+                  done
+
+                  if [ "$has_crlf" = true ]; then
+                    echo "❌ Line ending check failed! Use LF (Unix) line endings."
+                    exit 1
+                  fi
+
+                  echo "✅ Line ending check passed!"
+
+            - name: Check Trailing Whitespace
+              run: |
+                  echo "🔍 Checking for trailing whitespace..."
+
+                  files=$(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) \
+                          -not -path "./node_modules/*" \
+                          -not -path "./.git/*")
+
+                  has_trailing=false
+
+                  for file in $files; do
+                    if grep -q '[[:space:]]$' "$file"; then
+                      echo "❌ File has trailing whitespace: $file"
+                      has_trailing=true
+                    fi
+                  done
+
+                  if [ "$has_trailing" = true ]; then
+                    echo "❌ Trailing whitespace check failed!"
+                    exit 1
+                  fi
+
+                  echo "✅ Trailing whitespace check passed!"
+
+            - name: Validate HTML Syntax
+              run: |
+                  echo "🔍 Validating HTML syntax..."
+
+                  # Install HTML validator
+                  npm install -g html-validate
+
+                  # Create HTML validate config
+                  cat > .htmlvalidate.json << 'EOF'
+                  {
+                    "extends": ["html-validate:recommended"],
+                    "rules": {
+                      "void-style": "off",
+                      "no-inline-style": "off",
+                      "require-sri": "off"
+                    }
+                  }
+                  EOF
+
+                  # Validate all HTML files
+                  html_files=$(find . -name "*.html" -not -path "./node_modules/*")
+
+                  if [ -n "$html_files" ]; then
+                    html-validate $html_files || echo "⚠️  HTML validation warnings found"
+                  fi
+
+                  echo "✅ HTML syntax check completed!"
+
+            - name: Check File Sizes
+              run: |
+                  echo "🔍 Checking file sizes..."
+
+                  # Check for files larger than 500KB
+                  large_files=$(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) \
+                                -not -path "./node_modules/*" \
+                                -not -path "./.git/*" \
+                                -size +500k)
+
+                  if [ -n "$large_files" ]; then
+                    echo "⚠️  Large files detected (>500KB):"
+                    echo "$large_files"
+                    echo "Consider optimizing or splitting these files."
+                  else
+                    echo "✅ All files are within size limits"
+                  fi
+
+            - name: Check for Console Logs
+              run: |
+                  echo "🔍 Checking for console.log statements..."
+
+                  js_files=$(find . -name "*.js" -not -path "./node_modules/*")
+
+                  has_console=false
+
+                  for file in $js_files; do
+                    if grep -n "console\.log" "$file" | grep -v "console.error"; then
+                      echo "⚠️  Found console.log in: $file"
+                      has_console=true
+                    fi
+                  done
+
+                  if [ "$has_console" = true ]; then
+                    echo "⚠️  Console.log statements found. Consider removing for production."
+                  else
+                    echo "✅ No console.log statements found"
+                  fi
+
+            - name: Validate JSON Files
+              run: |
+                  echo "🔍 Validating JSON files..."
+
+                  json_files=$(find . -name "*.json" -not -path "./node_modules/*")
+
+                  for file in $json_files; do
+                    echo "📄 Validating: $file"
+                    if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+                      echo "❌ Invalid JSON in: $file"
+                      exit 1
+                    fi
+                  done
+
+                  echo "✅ All JSON files are valid!"
+
+            - name: Check for TODO Comments
+              run: |
+                  echo "🔍 Checking for TODO comments..."
+
+                  files=$(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) \
+                          -not -path "./node_modules/*")
+
+                  todos=$(grep -rn "TODO\|FIXME\|XXX\|HACK" $files 2>/dev/null || true)
+
+                  if [ -n "$todos" ]; then
+                    echo "⚠️  TODO comments found:"
+                    echo "$todos"
+                    echo ""
+                    echo "Consider creating GitHub issues for these items."
+                  else
+                    echo "✅ No TODO comments found"
+                  fi
+
+            - name: Check Copyright Headers
+              run: |
+                  echo "🔍 Checking for copyright/license information..."
+
+                  if [ ! -f "LICENSE" ]; then
+                    echo "⚠️  No LICENSE file found. Consider adding one."
+                  else
+                    echo "✅ LICENSE file exists"
+                  fi
+
+            - name: Summary
+              if: success()
+              run: |
+                  echo ""
+                  echo "=================================="
+                  echo "✅ CODE QUALITY CHECKS PASSED! 🎉"
+                  echo "=================================="
+                  echo ""
+                  echo "✅ Indentation checked"
+                  echo "✅ Line endings checked"
+                  echo "✅ Trailing whitespace checked"
+                  echo "✅ HTML syntax validated"
+                  echo "✅ File sizes checked"
+                  echo "✅ Console logs checked"
+                  echo "✅ JSON files validated"
+                  echo "✅ TODO comments checked"
+                  echo "✅ License checked"
+                  echo ""

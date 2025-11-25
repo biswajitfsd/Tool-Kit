@@ -1,0 +1,243 @@
+name: New Tool Validation
+
+on:
+    pull_request:
+        paths:
+            - 'tools/**'
+
+jobs:
+    validate-new-tool:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Detect New Tools
+              id: detect
+              run: |
+                  echo "🔍 Detecting new or modified tools..."
+
+                  # Get changed files
+                  changed_files=$(git diff --name-only origin/main...HEAD | grep "^tools/" || true)
+
+                  if [ -z "$changed_files" ]; then
+                    echo "No tool changes detected"
+                    echo "has_changes=false" >> $GITHUB_OUTPUT
+                    exit 0
+                  fi
+
+                  # Extract unique tool directories
+                  tool_dirs=$(echo "$changed_files" | cut -d'/' -f1-2 | sort -u)
+
+                  echo "Changed tools:"
+                  echo "$tool_dirs"
+
+                  echo "has_changes=true" >> $GITHUB_OUTPUT
+                  echo "tool_dirs<<EOF" >> $GITHUB_OUTPUT
+                  echo "$tool_dirs" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+
+            - name: Validate Tool Structure
+              if: steps.detect.outputs.has_changes == 'true'
+              run: |
+                  echo "🔍 Validating tool structure..."
+
+                  tool_dirs="${{ steps.detect.outputs.tool_dirs }}"
+
+                  for tool_dir in $tool_dirs; do
+                    tool_name=$(basename "$tool_dir")
+                    echo ""
+                    echo "📁 Validating: $tool_name"
+                    echo "================================"
+
+                    # Check if directory exists
+                    if [ ! -d "$tool_dir" ]; then
+                      echo "❌ Tool directory not found: $tool_dir"
+                      exit 1
+                    fi
+
+                    # Check required files
+                    required_files=("index.html" "style.css" "app.js")
+
+                    for file in "${required_files[@]}"; do
+                      if [ ! -f "$tool_dir/$file" ]; then
+                        echo "❌ Missing required file: $file"
+                        exit 1
+                      else
+                        echo "✅ Found: $file"
+                      fi
+                    done
+
+                    # Validate index.html
+                    echo ""
+                    echo "📄 Validating index.html..."
+
+                    html_file="$tool_dir/index.html"
+
+                    # Check for DOCTYPE
+                    if ! grep -q "<!DOCTYPE html>" "$html_file"; then
+                      echo "❌ Missing DOCTYPE declaration"
+                      exit 1
+                    fi
+
+                    # Check for UTF-8 charset
+                    if ! grep -q '<meta charset="UTF-8">' "$html_file"; then
+                      echo "❌ Missing UTF-8 charset meta tag"
+                      exit 1
+                    fi
+
+                    # Check for viewport meta tag
+                    if ! grep -q '<meta name="viewport"' "$html_file"; then
+                      echo "❌ Missing viewport meta tag"
+                      exit 1
+                    fi
+
+                    # Check for common.css reference
+                    if ! grep -q 'common.css' "$html_file"; then
+                      echo "❌ Missing common.css reference"
+                      exit 1
+                    fi
+
+                    # Check for theme toggle
+                    if ! grep -q 'themeToggle' "$html_file"; then
+                      echo "❌ Missing theme toggle"
+                      exit 1
+                    fi
+
+                    # Check for floating navigation
+                    if ! grep -q 'floatingNav' "$html_file"; then
+                      echo "❌ Missing floating navigation"
+                      exit 1
+                    fi
+
+                    echo "✅ index.html validation passed"
+
+                    # Validate style.css
+                    echo ""
+                    echo "📄 Validating style.css..."
+
+                    css_file="$tool_dir/style.css"
+
+                    # Check file is not empty
+                    if [ ! -s "$css_file" ]; then
+                      echo "❌ style.css is empty"
+                      exit 1
+                    fi
+
+                    # Check for responsive design
+                    if ! grep -q "@media" "$css_file"; then
+                      echo "⚠️  No media queries found. Consider adding responsive design."
+                    fi
+
+                    echo "✅ style.css validation passed"
+
+                    # Validate app.js
+                    echo ""
+                    echo "📄 Validating app.js..."
+
+                    js_file="$tool_dir/app.js"
+
+                    # Check file is not empty
+                    if [ ! -s "$js_file" ]; then
+                      echo "❌ app.js is empty"
+                      exit 1
+                    fi
+
+                    # Check for DOMContentLoaded
+                    if ! grep -q "DOMContentLoaded" "$js_file"; then
+                      echo "⚠️  No DOMContentLoaded listener found"
+                    fi
+
+                    echo "✅ app.js validation passed"
+
+                    echo ""
+                    echo "✅ Tool '$tool_name' structure validated successfully!"
+                  done
+
+            - name: Check Homepage Update
+              if: steps.detect.outputs.has_changes == 'true'
+              run: |
+                  echo "🔍 Checking if homepage was updated..."
+
+                  tool_dirs="${{ steps.detect.outputs.tool_dirs }}"
+
+                  for tool_dir in $tool_dirs; do
+                    tool_name=$(basename "$tool_dir")
+
+                    # Check if tool is referenced in index.html
+                    if grep -q "$tool_name" "index.html"; then
+                      echo "✅ Tool '$tool_name' found in homepage"
+                    else
+                      echo "⚠️  Tool '$tool_name' not found in homepage. Consider adding it."
+                    fi
+
+                    # Check if tool is in navigation
+                    if grep -q "data-page=\"$tool_name\"" "index.html"; then
+                      echo "✅ Tool '$tool_name' found in navigation"
+                    else
+                      echo "⚠️  Tool '$tool_name' not found in floating navigation"
+                    fi
+                  done
+
+            - name: Check Sitemap Update
+              if: steps.detect.outputs.has_changes == 'true'
+              run: |
+                  echo "🔍 Checking if sitemap.xml was updated..."
+
+                  tool_dirs="${{ steps.detect.outputs.tool_dirs }}"
+
+                  for tool_dir in $tool_dirs; do
+                    tool_name=$(basename "$tool_dir")
+
+                    if grep -q "$tool_name" "sitemap.xml"; then
+                      echo "✅ Tool '$tool_name' found in sitemap.xml"
+                    else
+                      echo "⚠️  Tool '$tool_name' not found in sitemap.xml. Consider adding it for SEO."
+                    fi
+                  done
+
+            - name: Check Documentation Update
+              if: steps.detect.outputs.has_changes == 'true'
+              run: |
+                  echo "🔍 Checking if documentation was updated..."
+
+                  tool_dirs="${{ steps.detect.outputs.tool_dirs }}"
+
+                  for tool_dir in $tool_dirs; do
+                    tool_name=$(basename "$tool_dir")
+
+                    # Check README.md
+                    if grep -q "$tool_name" "README.md" || grep -qi "$(echo $tool_name | tr '-' ' ')" "README.md"; then
+                      echo "✅ Tool found in README.md"
+                    else
+                      echo "⚠️  Tool not found in README.md. Consider updating documentation."
+                    fi
+
+                    # Check STRUCTURE.md
+                    if grep -q "$tool_name" "STRUCTURE.md" || grep -qi "$(echo $tool_name | tr '-' ' ')" "STRUCTURE.md"; then
+                      echo "✅ Tool found in STRUCTURE.md"
+                    else
+                      echo "⚠️  Tool not found in STRUCTURE.md. Consider updating structure docs."
+                    fi
+                  done
+
+            - name: Summary
+              if: steps.detect.outputs.has_changes == 'true' && success()
+              run: |
+                  echo ""
+                  echo "=================================="
+                  echo "✅ NEW TOOL VALIDATION PASSED! 🎉"
+                  echo "=================================="
+                  echo ""
+                  echo "✅ Tool structure validated"
+                  echo "✅ Required files present"
+                  echo "✅ HTML structure validated"
+                  echo "✅ CSS file validated"
+                  echo "✅ JavaScript file validated"
+                  echo "✅ Homepage checked"
+                  echo "✅ Sitemap checked"
+                  echo "✅ Documentation checked"
+                  echo ""
