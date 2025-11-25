@@ -371,7 +371,7 @@
 
 /* Generate Button */
 .generate-section {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .generate-btn {
@@ -399,125 +399,6 @@
 
 .generate-btn:active {
     transform: translateY(0);
-}
-
-/* History */
-.history-section {
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.history-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.history-header h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-colour);
-    margin: 0;
-}
-
-.clear-history-btn {
-    padding: 0.5rem 1rem;
-    background: rgba(231, 76, 60, 0.1);
-    color: #e74c3c;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.clear-history-btn:hover {
-    background: #e74c3c;
-    color: white;
-}
-
-.history-list {
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-.history-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.history-list::-webkit-scrollbar-track {
-    background: var(--border-color);
-    border-radius: 10px;
-}
-
-.history-list::-webkit-scrollbar-thumb {
-    background: #3498db;
-    border-radius: 10px;
-}
-
-.history-empty {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-secondary);
-}
-
-.history-empty i {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.5;
-}
-
-.history-empty p {
-    margin: 0;
-}
-
-.history-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    margin-bottom: 0.75rem;
-    transition: all 0.3s ease;
-}
-
-.history-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px var(--card-shadow);
-}
-
-.history-password {
-    flex: 1;
-    font-family: 'Courier New', Courier, monospace;
-    color: var(--primary-colour);
-    word-break: break-all;
-    font-size: 0.95rem;
-}
-
-.history-copy-btn {
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(52, 152, 219, 0.1);
-    color: #3498db;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.history-copy-btn:hover {
-    background: #3498db;
-    color: white;
 }
 
 /* Responsive Design */

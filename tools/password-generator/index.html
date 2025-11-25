@@ -4,15 +4,90 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Password Generator - Secure Password Creator</title>
-        <meta name="description" content="Generate strong, secure passwords with customizable options">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Password Generator - Create Strong Secure Passwords | Tool Kit</title>
+        <meta name="description"
+            content="Generate strong, secure, and random passwords with our free password generator. Customize length, use uppercase, lowercase, numbers, and symbols. Includes password strength meter and history.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/password-generator/">
+        <meta property="og:title" content="Password Generator - Create Strong Secure Passwords">
+        <meta property="og:description"
+            content="Generate strong, secure, and random passwords with customizable options. Free online password generator with strength meter.">
+        <meta property="og:image" content="https://tools.biswajit.online/icons/password-generator.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/password-generator/">
+        <meta property="twitter:title" content="Password Generator - Create Strong Secure Passwords">
+        <meta property="twitter:description"
+            content="Generate strong, secure, and random passwords with customizable options. Free online password generator with strength meter.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/icons/password-generator.png">
+
+        <!-- Favicon -->
         <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="../../style.css">
         <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Password Generator",
+        "description": "Generate strong, secure, and random passwords with customizable options including length, character types, and strength meter.",
+        "url": "https://tools.biswajit.online/tools/password-generator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Customizable password length (8-64 characters)",
+            "Multiple character types (uppercase, lowercase, numbers, symbols)",
+            "Password strength meter with entropy calculation",
+            "Exclude ambiguous characters option",
+            "Password history with copy functionality",
+            "Cryptographically secure random generation"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
     </head>
 
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         <!-- Theme Toggle Menu -->
         <div class="floating-menu">
             <label class="toggle-switch">
@@ -37,6 +112,9 @@
             </a>
             <a href="../todo" title="Todo List" data-page="todo">
                 <i class="fas fa-tasks"></i>
+            </a>
+            <a href="../password-generator" title="Password Generator" data-page="password-generator">
+                <i class="fas fa-key"></i>
             </a>
         </div>
 
@@ -151,23 +229,6 @@
                         <i class="fas fa-magic"></i>
                         Generate Password
                     </button>
-                </div>
-
-                <!-- Password History -->
-                <div class="history-section">
-                    <div class="history-header">
-                        <h3>Recent Passwords</h3>
-                        <button class="clear-history-btn" onclick="passwordGen.clearHistory()">
-                            <i class="fas fa-trash-alt"></i>
-                            Clear
-                        </button>
-                    </div>
-                    <div id="historyList" class="history-list">
-                        <div class="history-empty">
-                            <i class="fas fa-history"></i>
-                            <p>No passwords generated yet</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

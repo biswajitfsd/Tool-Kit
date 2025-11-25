@@ -7,8 +7,6 @@ var passwordGen = {
         symbols: true,
         excludeAmbiguous: false
     },
-    history: [],
-    maxHistory: 10,
 
     // Character sets
     chars: {
@@ -21,9 +19,7 @@ var passwordGen = {
 
     init: function () {
         this.loadPreferences();
-        this.loadHistory();
         this.updateLength(this.length);
-        this.renderHistory();
     },
 
     generatePassword: function () {
@@ -72,9 +68,6 @@ var passwordGen = {
 
         // Calculate and display strength
         this.calculateStrength(password);
-
-        // Add to history
-        this.addToHistory(password);
 
         // Animate generate button
         const btn = document.querySelector('.generate-btn i');
@@ -199,93 +192,6 @@ var passwordGen = {
                 document.getElementById('ambiguousCheck').checked = this.options.excludeAmbiguous;
             } catch (e) {
                 console.error('Error loading preferences:', e);
-            }
-        }
-    },
-
-    addToHistory: function (password) {
-        // Add to beginning of array
-        this.history.unshift({
-            password: password,
-            timestamp: new Date().toISOString()
-        });
-
-        // Limit history size
-        if (this.history.length > this.maxHistory) {
-            this.history = this.history.slice(0, this.maxHistory);
-        }
-
-        // Save and render
-        this.saveHistory();
-        this.renderHistory();
-    },
-
-    renderHistory: function () {
-        const historyList = document.getElementById('historyList');
-
-        if (this.history.length === 0) {
-            historyList.innerHTML = `
-                <div class="history-empty">
-                    <i class="fas fa-history"></i>
-                    <p>No passwords generated yet</p>
-                </div>
-            `;
-            return;
-        }
-
-        historyList.innerHTML = this.history.map((item, index) => `
-            <div class="history-item">
-                <div class="history-password">${this.escapeHtml(item.password)}</div>
-                <button class="history-copy-btn" onclick="passwordGen.copyFromHistory(${index})" title="Copy">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
-        `).join('');
-    },
-
-    copyFromHistory: function (index) {
-        const password = this.history[index].password;
-
-        navigator.clipboard.writeText(password).then(() => {
-            const btn = event.target.closest('.history-copy-btn');
-            const icon = btn.querySelector('i');
-
-            icon.className = 'fas fa-check';
-
-            setTimeout(() => {
-                icon.className = 'fas fa-copy';
-            }, 1500);
-        }).catch(err => {
-            console.error('Failed to copy:', err);
-            alert('Failed to copy password.');
-        });
-    },
-
-    clearHistory: function () {
-        if (this.history.length === 0) {
-            alert('History is already empty!');
-            return;
-        }
-
-        if (confirm('Clear password history? This cannot be undone.')) {
-            this.history = [];
-            this.saveHistory();
-            this.renderHistory();
-        }
-    },
-
-    saveHistory: function () {
-        localStorage.setItem('passwordGenHistory', JSON.stringify(this.history));
-    },
-
-    loadHistory: function () {
-        const saved = localStorage.getItem('passwordGenHistory');
-        if (saved) {
-            try {
-                this.history = JSON.parse(saved);
-            } catch (e) {
-                console.error('Error loading history:', e);
-                this.history = [];
             }
         }
     },
