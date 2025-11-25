@@ -1,78 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Kit</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tool Kit</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./home.css">
+    </head>
 
-<body>
-    <!-- Floating Menu -->
-    <div class="floating-menu">
-        <label class="toggle-switch">
-            <input type="checkbox" id="themeToggle">
-            <span class="switch">
-                <span class="icon light">☀️</span>
-                <span class="icon dark">🌙</span>
-            </span>
-        </label>
-    </div>
-
-    <div class="floating-menu" id="floatingNav">
-        <a href="./" title="Home" data-page="home">
-            <i class="fas fa-home"></i>
-        </a>
-        <a href="./countdown-timer" title="Countdown" data-page="countdown">
-            <i class="fas fa-hourglass-half"></i>
-        </a>
-        <a href="./clock" title="Clock" data-page="clock">
-            <i class="fas fa-clock"></i>
-        </a>
-    </div>
-
-    <!-- Main Toolkit Container -->
-    <div class="toolkit-container">
-        <!-- Header -->
-        <div class="toolkit-header">
-            <h1>
-                <i class="fas fa-tools"></i> Tool Kit
-            </h1>
+    <body>
+        <!-- Floating Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
         </div>
 
-        <!-- Tools Grid -->
-        <div class="toolkit-grid">
-            <!-- Countdown Timer Card -->
-            <a href="./countdown-timer" class="toolkit-card">
-                <div class="toolkit-icon-wrapper">
-                    <i class="fas fa-hourglass-half toolkit-icon"></i>
-                </div>
-                <h3 class="toolkit-title">Countdown Timer</h3>
-                <p class="toolkit-description">Track time until your important events and deadlines</p>
-                <div class="toolkit-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
+        <div class="floating-menu" id="floatingNav">
+            <a href="./index.html" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
             </a>
-
-            <!-- Digital Clock Card -->
-            <a href="./clock" class="toolkit-card">
-                <div class="toolkit-icon-wrapper">
-                    <i class="fas fa-clock toolkit-icon"></i>
-                </div>
-                <h3 class="toolkit-title">Digital Clock</h3>
-                <p class="toolkit-description">View current time with a sleek digital display</p>
-                <div class="toolkit-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
+            <a href="./tools/countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="./tools/clock/" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="./tools/todo/" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
             </a>
         </div>
-    </div>
 
-    <!-- JavaScript -->
-    <script src="./index.js"></script>
-</body>
+        <!-- Main Toolkit Container -->
+        <div class="toolkit-container">
+            <!-- Header -->
+            <div class="toolkit-header">
+                <h1>
+                    <i class="fas fa-tools"></i> Tool Kit
+                </h1>
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="toolkit-grid">
+                <!-- Countdown Timer Card -->
+                <a href="./tools/countdown-timer" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-hourglass-half toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Pomodoro Timer</h3>
+                    <p class="toolkit-description">Focus timer with presets and break management</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Digital Clock Card -->
+                <a href="./tools/clock" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-clock toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Digital Clock</h3>
+                    <p class="toolkit-description">View current time with elegant display</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Todo List Card -->
+                <a href="./tools/todo" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-tasks toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Todo List</h3>
+                    <p class="toolkit-description">Manage your tasks and stay organized</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Stopwatch Card -->
+                <a href="./tools/stopwatch" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-stopwatch toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Stopwatch</h3>
+                    <p class="toolkit-description">Track elapsed time with lap functionality</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Calculator Card -->
+                <a href="./tools/calculator" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-calculator toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Calculator</h3>
+                    <p class="toolkit-description">Perform quick calculations</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Password Generator Card -->
+                <a href="./tools/password-generator" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-key toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Password Generator</h3>
+                    <p class="toolkit-description">Create strong secure passwords</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Unit Converter Card -->
+                <a href="./tools/unit-converter" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-exchange-alt toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Unit Converter</h3>
+                    <p class="toolkit-description">Convert between different units</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- BMI Calculator Card -->
+                <a href="./tools/bmi-calculator" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-weight toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">BMI Calculator</h3>
+                    <p class="toolkit-description">Calculate body mass index</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Breathing Exercise Card -->
+                <a href="./tools/breathing-exercise" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-wind toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Breathing Exercise</h3>
+                    <p class="toolkit-description">Guided breathing relaxation</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- URL Encoder Card -->
+                <a href="./tools/url-encoder" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-link toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">URL Encoder</h3>
+                    <p class="toolkit-description">Encode and decode URLs</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- JSON Formatter Card -->
+                <a href="./tools/json-formatter" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-code toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">JSON Formatter</h3>
+                    <p class="toolkit-description">Format and validate JSON</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Base64 Encoder Card -->
+                <a href="./tools/base64-encoder" class="toolkit-card">
+                    <div class="toolkit-icon-wrapper">
+                        <i class="fas fa-file-code toolkit-icon"></i>
+                    </div>
+                    <h3 class="toolkit-title">Base64 Encoder</h3>
+                    <p class="toolkit-description">Encode decode Base64</p>
+                    <div class="toolkit-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="./index.js"></script>
+    </body>
 
 </html>

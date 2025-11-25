@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo List - Task Manager</title>
+        <meta name="description" content="A beautiful todo list to manage your tasks and stay organized">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="todo-container">
+                <!-- Header -->
+                <div class="todo-header">
+                    <h1><i class="fas fa-tasks"></i> Todo List</h1>
+                    <p class="todo-subtitle">Stay organized and productive</p>
+                </div>
+
+                <!-- Stats -->
+                <div class="todo-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-list"></i>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalTasks">0</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="stat-info">
+                            <span class="stat-value" id="completedTasks">0</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-info">
+                            <span class="stat-value" id="pendingTasks">0</span>
+                            <span class="stat-label">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Task Form -->
+                <div class="add-task-section">
+                    <div class="add-task-form">
+                        <input type="text" id="taskInput" placeholder="What needs to be done?" maxlength="200">
+                        <button id="addTaskBtn" onclick="todoList.addTask()">
+                            <i class="fas fa-plus"></i>
+                            Add Task
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all" onclick="todoList.filterTasks('all')">
+                        <i class="fas fa-list"></i>
+                        All
+                    </button>
+                    <button class="filter-tab" data-filter="active" onclick="todoList.filterTasks('active')">
+                        <i class="fas fa-circle"></i>
+                        Active
+                    </button>
+                    <button class="filter-tab" data-filter="completed" onclick="todoList.filterTasks('completed')">
+                        <i class="fas fa-check-circle"></i>
+                        Completed
+                    </button>
+                </div>
+
+                <!-- Task List -->
+                <div class="task-list" id="taskList">
+                    <!-- Tasks will be inserted here dynamically -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>No tasks yet. Add one to get started!</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-btn secondary" onclick="todoList.clearCompleted()">
+                        <i class="fas fa-trash-alt"></i>
+                        Clear Completed
+                    </button>
+                    <button class="action-btn danger" onclick="todoList.clearAll()">
+                        <i class="fas fa-times-circle"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../../index.js"></script>
+        <script src="./app.js"></script>
+    </body>
+
+</html>

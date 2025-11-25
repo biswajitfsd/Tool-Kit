@@ -4,11 +4,13 @@ A collection of useful web-based productivity tools including a Pomodoro timer a
 
 ## 🚀 Features
 
-- **Pomodoro Timer**: Focus timer with presets and break management
-- **Digital Clock**: Clean digital time display with date
-- **Responsive Design**: Works on all devices
-- **Dark Mode**: Toggle between light and dark themes
-- **Modern UI**: Card-based design with smooth animations
+-   **Pomodoro Timer**: Focus timer with presets (25/15/50 min) and break management
+-   **Digital Clock**: Clean digital time display with 12h/24h toggle
+-   **Todo List**: Task manager with filters and localStorage persistence
+-   **Responsive Design**: Works on all devices
+-   **Dark Mode**: Toggle between light and dark themes
+-   **Modern UI**: Card-based design with smooth animations
+-   **Smart Navigation**: Floating menu with context-aware links
 
 ## 📁 Project Structure
 
@@ -16,33 +18,36 @@ A collection of useful web-based productivity tools including a Pomodoro timer a
 tool-kit/
 ├── .vscode/              # VS Code settings
 │   ├── settings.json     # Editor configuration
-│   └── extensions.json   # Recommended extensions
-├── clock/                # Digital clock page
-│   ├── app.js           # Clock logic
-│   ├── index.html       # Clock HTML
-│   └── style.css        # Clock styles (optional)
-├── countdown-timer/      # Pomodoro timer page
-│   ├── app.js           # Timer logic
-│   ├── index.html       # Timer HTML
-│   └── style.css        # Timer styles
-├── fonts/               # Custom fonts
-│   └── ds_digital/      # Digital font family
+│   ├── extensions.json   # Recommended extensions
+│   └── keybindings.json  # JetBrains IDE keymap
+├── tools/                # All tools directory
+│   ├── clock/            # Digital clock page
+│   │   ├── app.js        # Clock logic
+│   │   ├── index.html    # Clock HTML
+│   │   └── style.css     # Clock styles
+│   ├── countdown-timer/  # Pomodoro timer page
+│   │   ├── app.js        # Timer logic
+│   │   ├── index.html    # Timer HTML
+│   │   └── style.css     # Timer styles
+│   └── todo/             # Todo list page
+│       ├── app.js        # Todo logic
+│       ├── index.html    # Todo HTML
+│       └── style.css     # Todo styles
+├── fonts/                # Custom fonts
+│   └── ds_digital/       # Digital font family
 │       ├── DS-DIGI.TTF
 │       ├── DS-DIGIB.TTF
 │       ├── DS-DIGII.TTF
 │       └── DS-DIGIT.TTF
-├── common.css           # Shared styles (theme, menu, etc.)
-├── home.css             # Homepage specific styles
-├── clock.css            # Clock specific styles
-├── countdown.css        # Timer specific styles
-├── index.html           # Homepage
-├── index.js             # Main JavaScript (theme, navigation)
-├── style.css            # Legacy/backup styles
-├── sitemap.xml          # SEO sitemap
-├── favicon.ico          # Site icon
-├── .editorconfig        # Editor configuration
-├── .gitignore           # Git ignore rules
-└── README.md            # This file
+├── common.css            # Shared styles (theme, menu, etc.)
+├── home.css              # Homepage specific styles
+├── index.html            # Homepage
+├── index.js              # Main JavaScript (theme, navigation)
+├── sitemap.xml           # SEO sitemap
+├── favicon.ico           # Site icon
+├── .editorconfig         # Editor configuration
+├── .gitignore            # Git ignore rules
+└── README.md             # This file
 ```
 
 ## 🛠️ Setup
@@ -54,16 +59,19 @@ tool-kit/
 ### VS Code Setup
 
 This project includes VS Code settings for optimal development experience:
-- 4-space indentation
-- Format on save
-- Recommended extensions
+
+-   4-space indentation
+-   Format on save
+-   Recommended extensions
 
 Install recommended extensions when prompted by VS Code.
 
 ## 🎨 Customization
 
 ### Colors
+
 Edit CSS variables in `common.css`:
+
 ```css
 :root {
     --primary-colour: #4e4d4d;
@@ -74,17 +82,51 @@ Edit CSS variables in `common.css`:
 ```
 
 ### Timer Presets
-Edit preset values in `countdown-timer/app.js`:
+
+Edit preset values in `tools/countdown-timer/app.js`:
+
 ```javascript
-timer.setPreset(25, 'Focus Time')  // Change minutes
+timer.setPreset(25, 'Focus Time'); // Change minutes
 ```
 
 ## 🌐 Browser Support
 
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
+-   Chrome (recommended)
+-   Firefox
+-   Safari
+-   Edge
+
+## 🗺️ Tools Roadmap
+
+### ✅ Available Tools:
+
+-   **Pomodoro Timer** - Focus timer with presets and breaks
+-   **Digital Clock** - 12h/24h format with date display
+-   **Todo List** - Task manager with localStorage
+
+### 🚧 In Development:
+
+-   **Stopwatch** - Lap time tracking and split times
+-   **Calculator** - Basic and scientific operations
+-   **Password Generator** - Strong password creation tool
+-   **Unit Converter** - Length, weight, temperature, currency
+-   **BMI Calculator** - Body mass index calculation
+-   **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
+-   **URL Encoder/Decoder** - Safe URL encoding and decoding
+-   **JSON Formatter** - Format, validate, and beautify JSON
+-   **Base64 Encoder/Decoder** - Base64 encoding and decoding
+-   **SQL Formatter** - MySQL/PostgreSQL query formatting
+
+### 💡 Future Considerations:
+
+-   World Clock (Multiple timezones)
+-   Notes App (Quick note-taking with markdown)
+-   Color Picker (HEX, RGB, HSL codes)
+-   QR Code Generator
+-   Text Case Converter
+-   Word Counter & Reading Time
+-   Age Calculator
+-   Markdown Preview
 
 ## 📝 License
 

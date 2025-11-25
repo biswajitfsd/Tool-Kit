@@ -92,7 +92,7 @@
     "git.autofetch": true,
     // Workbench Settings
     "workbench.colorTheme": "Default Dark+",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
     // Terminal Settings
     "terminal.integrated.fontSize": 14,
