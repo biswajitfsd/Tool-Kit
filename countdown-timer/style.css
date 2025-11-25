@@ -1,0 +1,382 @@
+/* ========== POMODORO TIMER STYLES ========== */
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.pomodoro-container {
+    background: var(--card-bg);
+    border-radius: 30px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 10px 40px var(--card-shadow);
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+/* Header */
+.pomodoro-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pomodoro-header h1 {
+    font-size: 2rem;
+    color: var(--primary-colour);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.pomodoro-header h1 i {
+    color: var(--accent-color);
+}
+
+.session-label {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Timer Display */
+.timer-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.timer-circle {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 8;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 754;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s linear;
+}
+
+.timer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#timer {
+    font-size: 4rem;
+    font-family: 'digi-bold', 'Courier New', Courier, monospace;
+    color: var(--primary-colour);
+    margin: 0;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.session-count {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.session-count i {
+    color: #2ecc71;
+    font-size: 1rem;
+}
+
+/* Presets */
+.timer-presets {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.preset-btn {
+    flex: 1;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--primary-colour);
+}
+
+.preset-btn i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.preset-btn span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.preset-btn small {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.preset-btn:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--card-shadow);
+}
+
+.preset-btn:hover i {
+    transform: scale(1.1);
+}
+
+.preset-btn.active {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(53, 122, 189, 0.1));
+}
+
+.preset-btn.active i {
+    color: var(--accent-hover);
+}
+
+/* Controls */
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+}
+
+.control-btn.primary {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.control-btn.primary:hover {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.control-btn.primary:active {
+    transform: translateY(0);
+}
+
+.control-btn.secondary {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.control-btn.secondary:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.control-btn.secondary:active {
+    transform: translateY(0);
+}
+
+.control-btn.rest {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+.control-btn.rest:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+.control-btn.rest:active {
+    transform: translateY(0);
+}
+
+/* Break Mode Styling */
+.pomodoro-container.break-mode .progress-ring-circle {
+    stroke: #f39c12;
+}
+
+.pomodoro-container.break-mode .session-label {
+    color: #f39c12;
+}
+
+.pomodoro-container.break-mode .preset-btn.active {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(230, 126, 34, 0.1));
+}
+
+/* Completed State */
+.pomodoro-container.completed #timer {
+    color: #2ecc71;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pomodoro-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .pomodoro-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .timer-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .progress-ring {
+        width: 240px;
+        height: 240px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-circle {
+        cx: 120;
+        cy: 120;
+        r: 100;
+    }
+
+    #timer {
+        font-size: 3rem;
+    }
+
+    .preset-btn {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .preset-btn i {
+        font-size: 1.2rem;
+    }
+
+    .preset-btn span {
+        font-size: 0.8rem;
+    }
+
+    .control-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown {
+        padding: 1rem;
+    }
+
+    .pomodoro-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .timer-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .progress-ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-circle {
+        cx: 100;
+        cy: 100;
+        r: 85;
+    }
+
+    #timer {
+        font-size: 2.5rem;
+    }
+
+    .timer-presets {
+        gap: 0.5rem;
+    }
+
+    .preset-btn {
+        padding: 0.625rem 0.25rem;
+    }
+
+    .preset-btn i {
+        font-size: 1rem;
+    }
+
+    .preset-btn span {
+        font-size: 0.7rem;
+    }
+
+    .preset-btn small {
+        font-size: 0.65rem;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+    }
+
+    .control-btn {
+        padding: 0.875rem;
+    }
+}

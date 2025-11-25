@@ -1,0 +1,307 @@
+/* ========== DIGITAL CLOCK STYLES ========== */
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.clock-container {
+    background: var(--card-bg);
+    border-radius: 30px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 10px 40px var(--card-shadow);
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+/* Header */
+.clock-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.clock-header h1 {
+    font-size: 2rem;
+    color: var(--primary-colour);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.clock-header h1 i {
+    color: var(--accent-color);
+}
+
+.clock-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Clock Display */
+.clock-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.time-wrapper {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(53, 122, 189, 0.05));
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.time-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.clock-time {
+    font-size: 4.5rem;
+    font-family: 'digi-bold', 'Courier New', Courier, monospace;
+    color: var(--primary-colour);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+.clock-period {
+    font-size: 2rem;
+    font-family: 'digi-bold', 'Courier New', Courier, monospace;
+    color: var(--accent-color);
+    font-weight: 700;
+    align-self: flex-end;
+    padding-bottom: 0.5rem;
+}
+
+/* Date Display */
+.date-display {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary-colour);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.date-item i {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+}
+
+.date-divider {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+}
+
+/* Format Toggle */
+.format-toggle {
+    display: flex;
+    justify-content: center;
+}
+
+.format-btn {
+    padding: 0.875rem 2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    background: var(--card-bg);
+    color: var(--primary-colour);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.format-btn i {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.format-btn:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--card-shadow);
+}
+
+.format-btn:hover i {
+    transform: rotate(180deg);
+}
+
+.format-btn:active {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.clock-container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Pulse animation for time separator */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.clock-time {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .clock-container {
+        padding: 2rem 1.5rem;
+        max-width: 500px;
+    }
+
+    .clock-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .time-wrapper {
+        padding: 1.5rem 2rem;
+    }
+
+    .clock-time {
+        font-size: 3.5rem;
+    }
+
+    .clock-period {
+        font-size: 1.5rem;
+    }
+
+    .date-row {
+        gap: 1rem;
+    }
+
+    .date-item {
+        font-size: 1rem;
+    }
+
+    .date-item i {
+        font-size: 1.1rem;
+    }
+
+    .format-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown {
+        padding: 1rem;
+    }
+
+    .clock-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .clock-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .clock-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .time-wrapper {
+        padding: 1.25rem 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .time-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .clock-time {
+        font-size: 2.5rem;
+    }
+
+    .clock-period {
+        font-size: 1.25rem;
+        padding-bottom: 0;
+        align-self: center;
+    }
+
+    .date-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .date-divider {
+        display: none;
+    }
+
+    .date-item {
+        font-size: 0.9rem;
+    }
+
+    .format-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 24-hour format specific styles */
+.clock-container.format-24h .clock-period {
+    display: none;
+}
+
+.clock-container.format-24h .time-content {
+    justify-content: center;
+}

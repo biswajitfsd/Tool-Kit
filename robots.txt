@@ -1,0 +1,11 @@
+# Robots.txt for Tool Kit
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tools.biswajit.online/sitemap.xml
+
+# Disallow specific files/folders if needed
+# Disallow: /private/
+# Disallow: /.git/

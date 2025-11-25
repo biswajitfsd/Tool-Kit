@@ -1,27 +1,74 @@
-function updateClock() {
-    const now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes().toString().padStart(2, '0');
-    let seconds = now.getSeconds().toString().padStart(2, '0');
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    hours = hours.toString().padStart(2, '0');
-    let dayOfWeek = now.toLocaleString('default', { weekday: 'long' });
-    let currentDate = now.toLocaleDateString();
+var clock = {
+    is24Hour: false,
+    intervalId: null,
 
-    // Update the day of the week
-    document.getElementById('dayOfWeek').textContent = dayOfWeek;
+    init: function () {
+        this.updateClock();
+        this.intervalId = setInterval(() => this.updateClock(), 1000);
+    },
 
-    // Update the current date
-    document.getElementById('currentDate').textContent = currentDate;
+    updateClock: function () {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes().toString().padStart(2, '0');
+        let seconds = now.getSeconds().toString().padStart(2, '0');
 
-    // Update the time in AM/PM format
-    document.getElementById('clock').innerHTML = `${hours}:${minutes}:${seconds} <sub>${ampm}<sub>`;
-}
+        // Format based on 12h or 24h
+        let displayHours;
+        let ampm = '';
 
-// Update the clock every second
-setInterval(updateClock, 1000);
+        if (this.is24Hour) {
+            displayHours = hours.toString().padStart(2, '0');
+        } else {
+            ampm = hours >= 12 ? 'PM' : 'AM';
+            displayHours = hours % 12;
+            displayHours = displayHours ? displayHours : 12; // Convert 0 to 12
+            displayHours = displayHours.toString().padStart(2, '0');
+        }
 
-// Initialize the clock
-updateClock();
+        // Get day of week
+        let dayOfWeek = now.toLocaleString('en-US', { weekday: 'long' });
+
+        // Get current date
+        let currentDate = now.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+
+        // Update the DOM
+        document.getElementById('clock').textContent = `${displayHours}:${minutes}:${seconds}`;
+
+        if (!this.is24Hour) {
+            document.getElementById('ampm').textContent = ampm;
+            document.getElementById('ampm').style.display = 'block';
+        } else {
+            document.getElementById('ampm').style.display = 'none';
+        }
+
+        document.getElementById('dayOfWeek').textContent = dayOfWeek;
+        document.getElementById('currentDate').textContent = currentDate;
+    },
+
+    toggleFormat: function () {
+        this.is24Hour = !this.is24Hour;
+
+        // Update button text
+        const formatText = document.getElementById('format-text');
+        if (this.is24Hour) {
+            formatText.textContent = 'Switch to 12h';
+            document.querySelector('.clock-container').classList.add('format-24h');
+        } else {
+            formatText.textContent = 'Switch to 24h';
+            document.querySelector('.clock-container').classList.remove('format-24h');
+        }
+
+        // Update clock immediately
+        this.updateClock();
+    }
+};
+
+// Initialize clock when page loads
+document.addEventListener('DOMContentLoaded', function () {
+    clock.init();
+});
