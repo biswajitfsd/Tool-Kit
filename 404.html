@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 - Page Not Found | Tool Kit</title>
+        <meta name="description" content="The page you're looking for doesn't exist">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="/common.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--body-bg);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            }
+
+            .error-container {
+                text-align: center;
+                padding: 3rem 2rem;
+                max-width: 600px;
+                width: 100%;
+            }
+
+            .error-code {
+                font-size: 8rem;
+                font-weight: 700;
+                color: var(--accent-color);
+                margin: 0;
+                line-height: 1;
+                animation: bounce 2s ease-in-out infinite;
+            }
+
+            @keyframes bounce {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            .error-icon {
+                font-size: 5rem;
+                color: var(--accent-color);
+                margin: 2rem 0;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            .error-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--primary-colour);
+                margin: 1rem 0;
+            }
+
+            .error-message {
+                font-size: 1.2rem;
+                color: var(--text-secondary);
+                margin: 1rem 0 2rem;
+                line-height: 1.6;
+            }
+
+            .error-actions {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+            }
+
+            .error-btn {
+                padding: 1rem 2rem;
+                border-radius: 15px;
+                font-size: 1rem;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .error-btn.primary {
+                background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+                color: white;
+                border: none;
+                box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            }
+
+            .error-btn.primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+            }
+
+            .error-btn.secondary {
+                background: var(--card-bg);
+                color: var(--primary-colour);
+                border: 2px solid var(--border-color);
+            }
+
+            .error-btn.secondary:hover {
+                border-color: var(--accent-color);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px var(--card-shadow);
+            }
+
+            .suggestions {
+                margin-top: 3rem;
+                padding: 2rem;
+                background: var(--card-bg);
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: 0 4px 15px var(--card-shadow);
+            }
+
+            .suggestions h3 {
+                color: var(--primary-colour);
+                margin-top: 0;
+                font-size: 1.3rem;
+            }
+
+            .suggestions-list {
+                list-style: none;
+                padding: 0;
+                margin: 1rem 0 0;
+            }
+
+            .suggestions-list li {
+                margin: 0.75rem 0;
+            }
+
+            .suggestions-list a {
+                color: var(--accent-color);
+                text-decoration: none;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+            }
+
+            .suggestions-list a:hover {
+                color: var(--accent-hover);
+                transform: translateX(5px);
+            }
+
+            @media (max-width: 768px) {
+                .error-code {
+                    font-size: 6rem;
+                }
+
+                .error-icon {
+                    font-size: 4rem;
+                }
+
+                .error-title {
+                    font-size: 2rem;
+                }
+
+                .error-message {
+                    font-size: 1rem;
+                }
+
+                .error-actions {
+                    flex-direction: column;
+                }
+
+                .error-btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .suggestions {
+                    padding: 1.5rem;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="error-btn primary">
+                    <i class="fas fa-home"></i>
+                    Go to Homepage
+                </a>
+                <button onclick="history.back()" class="error-btn secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Go Back
+                </button>
+            </div>
+
+            <div class="suggestions">
+                <h3><i class="fas fa-lightbulb"></i> Popular Tools</h3>
+                <ul class="suggestions-list">
+                    <li>
+                        <a href="/tools/countdown-timer">
+                            <i class="fas fa-hourglass-half"></i>
+                            Pomodoro Timer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tools/clock">
+                            <i class="fas fa-clock"></i>
+                            Digital Clock
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tools/todo">
+                            <i class="fas fa-tasks"></i>
+                            Todo List
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="/index.js"></script>
+    </body>
+
+</html>

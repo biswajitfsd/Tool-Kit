@@ -38,9 +38,9 @@ function checkSystemTheme() {
 }
 
 // Initialize theme on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const systemTheme = checkSystemTheme();
-    
+
     // Set toggle checkbox to match current theme
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
@@ -71,14 +71,14 @@ if (mediaQuery.addEventListener) {
 }
 
 // Manual theme toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
-        themeToggle.addEventListener('change', function() {
+        themeToggle.addEventListener('change', function () {
             applyTheme(this.checked);
         });
     }
-    
+
     // Hide current page from floating menu
     hideCurrentPageLink();
 });
@@ -87,39 +87,116 @@ document.addEventListener('DOMContentLoaded', function() {
 function hideCurrentPageLink() {
     const currentPath = window.location.pathname;
     const floatingNav = document.getElementById('floatingNav');
-    
+
     if (!floatingNav) return;
-    
+
     const links = floatingNav.querySelectorAll('a');
-    
+
     links.forEach(link => {
         const dataPage = link.getAttribute('data-page');
-        
         // Normalize current path
         const normalizedPath = currentPath.toLowerCase().replace(/\\/g, '/');
-        
+
         // Determine which page we're on
         let isCurrentPage = false;
-        
-        // Check for home page (only if NOT on countdown or clock pages)
+
+        // Check for home page (only if NOT on any tool pages)
         if (dataPage === 'home') {
-            if (!normalizedPath.includes('countdown-timer') && !normalizedPath.includes('clock')) {
+            if (!normalizedPath.includes('countdown-timer') &&
+                !normalizedPath.includes('clock') &&
+                !normalizedPath.includes('todo') &&
+                !normalizedPath.includes('stopwatch') &&
+                !normalizedPath.includes('calculator') &&
+                !normalizedPath.includes('password-generator') &&
+                !normalizedPath.includes('unit-converter') &&
+                !normalizedPath.includes('bmi-calculator') &&
+                !normalizedPath.includes('breathing-exercise') &&
+                !normalizedPath.includes('url-encoder') &&
+                !normalizedPath.includes('json-formatter') &&
+                !normalizedPath.includes('base64-encoder') &&
+                !normalizedPath.includes('sql-formatter')) {
                 isCurrentPage = true;
             }
-        } 
+        }
         // Check for countdown page
         else if (dataPage === 'countdown') {
             if (normalizedPath.includes('countdown-timer')) {
                 isCurrentPage = true;
             }
-        } 
+        }
         // Check for clock page
         else if (dataPage === 'clock') {
-            if (normalizedPath.includes('clock') && !normalizedPath.includes('countdown')) {
+            if (normalizedPath.includes('clock')) {
                 isCurrentPage = true;
             }
         }
-        
+        // Check for todo page
+        else if (dataPage === 'todo') {
+            if (normalizedPath.includes('todo')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for stopwatch page
+        else if (dataPage === 'stopwatch') {
+            if (normalizedPath.includes('stopwatch')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for calculator page
+        else if (dataPage === 'calculator') {
+            if (normalizedPath.includes('calculator') && !normalizedPath.includes('bmi')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for password generator page
+        else if (dataPage === 'password-generator') {
+            if (normalizedPath.includes('password-generator')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for unit converter page
+        else if (dataPage === 'unit-converter') {
+            if (normalizedPath.includes('unit-converter')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for BMI calculator page
+        else if (dataPage === 'bmi-calculator') {
+            if (normalizedPath.includes('bmi-calculator')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for breathing exercise page
+        else if (dataPage === 'breathing-exercise') {
+            if (normalizedPath.includes('breathing-exercise')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for URL encoder page
+        else if (dataPage === 'url-encoder') {
+            if (normalizedPath.includes('url-encoder')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for JSON formatter page
+        else if (dataPage === 'json-formatter') {
+            if (normalizedPath.includes('json-formatter')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for Base64 encoder page
+        else if (dataPage === 'base64-encoder') {
+            if (normalizedPath.includes('base64-encoder')) {
+                isCurrentPage = true;
+            }
+        }
+        // Check for SQL formatter page
+        else if (dataPage === 'sql-formatter') {
+            if (normalizedPath.includes('sql-formatter')) {
+                isCurrentPage = true;
+            }
+        }
+
         // Hide if it's the current page, show if it's not
         if (isCurrentPage) {
             link.style.display = 'none';

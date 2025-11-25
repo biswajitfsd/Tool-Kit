@@ -2,25 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Homepage -->
     <url>
-        <loc>https://yourdomain.com/</loc>
+        <loc>https://tools.biswajit.online/</loc>
         <lastmod>2025-11-25</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Countdown Timer / Pomodoro -->
+    <!-- Pomodoro Timer -->
     <url>
-        <loc>https://yourdomain.com/countdown-timer/</loc>
+        <loc>https://tools.biswajit.online/tools/countdown-timer/</loc>
         <lastmod>2025-11-25</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
 
     <!-- Digital Clock -->
     <url>
-        <loc>https://yourdomain.com/clock/</loc>
+        <loc>https://tools.biswajit.online/tools/clock/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Todo List -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/todo/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Stopwatch -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/stopwatch/</loc>
         <lastmod>2025-11-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- Calculator -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/calculator/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Password Generator -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/password-generator/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Unit Converter -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/unit-converter/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- BMI Calculator -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/bmi-calculator/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Breathing Exercise -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/breathing-exercise/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- URL Encoder -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/url-encoder/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- JSON Formatter -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/json-formatter/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Base64 Encoder -->
+    <url>
+        <loc>https://tools.biswajit.online/tools/base64-encoder/</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>
