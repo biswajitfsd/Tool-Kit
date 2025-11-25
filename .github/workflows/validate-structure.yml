@@ -29,6 +29,7 @@ jobs:
                     "sitemap.xml"
                     "robots.txt"
                     "404.html"
+                    ".editorconfig"
                     ".gitignore"
                   )
 
