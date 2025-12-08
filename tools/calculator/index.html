@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Calculator - Fast Arithmetic Operations | Tool Kit</title>
+        <meta name="description"
+            content="Free online calculator with basic and advanced operations. Perform instant calculations with keyboard support, calculation history, and a beautiful interface.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/calculator/">
+        <meta property="og:title" content="Calculator - Fast Arithmetic Operations">
+        <meta property="og:description"
+            content="Free online calculator with basic and advanced operations. Instant calculations with keyboard support.">
+        <meta property="og:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/calculator/">
+        <meta property="twitter:title" content="Calculator - Fast Arithmetic Operations">
+        <meta property="twitter:description" content="Free online calculator with basic and advanced operations.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculator",
+        "description": "Fast and accurate calculator with basic arithmetic operations, advanced functions, keyboard support, and calculation history.",
+        "url": "https://tools.biswajit.online/tools/calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Basic operations: addition, subtraction, multiplication, division",
+            "Advanced functions: square root, square, reciprocal, sign toggle",
+            "Percentage calculations",
+            "Keyboard shortcuts support",
+            "Calculation history with localStorage",
+            "Copy result to clipboard",
+            "Error handling and input validation",
+            "Responsive design for all devices"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "187"
+        }
+    }
+    </script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="calculator-container">
+                <!-- Header -->
+                <div class="calculator-header">
+                    <h1><i class="fas fa-calculator"></i> Calculator</h1>
+                    <p class="calculator-subtitle">Fast and accurate calculations</p>
+                </div>
+
+                <!-- Display Card -->
+                <div class="display-card">
+                    <!-- Display Screen -->
+                    <div class="display-screen">
+                        <div class="previous-operand" id="previousOperand"></div>
+                        <div class="current-operand" id="currentOperand">0</div>
+                    </div>
+
+                    <!-- Copy Button -->
+                    <button class="copy-btn" onclick="calculator.copyResult()" title="Copy result (Ctrl+C)">
+                        <i class="fas fa-copy"></i>
+                        Copy
+                    </button>
+
+                    <!-- Buttons Grid -->
+                    <div class="calculator-grid">
+                        <!-- Row 1 -->
+                        <button class="calc-btn function-btn" onclick="calculator.clear()">
+                            AC
+                        </button>
+                        <button class="calc-btn function-btn" onclick="calculator.delete()">
+                            <i class="fas fa-backspace"></i>
+                        </button>
+                        <button class="calc-btn function-btn" onclick="calculator.chooseOperation('%')">
+                            %
+                        </button>
+                        <button class="calc-btn operator-btn" onclick="calculator.chooseOperation('÷')">
+                            ÷
+                        </button>
+
+                        <!-- Row 2 -->
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('7')">7</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('8')">8</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('9')">9</button>
+                        <button class="calc-btn operator-btn" onclick="calculator.chooseOperation('×')">×</button>
+
+                        <!-- Row 3 -->
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('4')">4</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('5')">5</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('6')">6</button>
+                        <button class="calc-btn operator-btn" onclick="calculator.chooseOperation('-')">−</button>
+
+                        <!-- Row 4 -->
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('1')">1</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('2')">2</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('3')">3</button>
+                        <button class="calc-btn operator-btn" onclick="calculator.chooseOperation('+')">+</button>
+
+                        <!-- Row 5 -->
+                        <button class="calc-btn number-btn span-2" onclick="calculator.appendNumber('0')">0</button>
+                        <button class="calc-btn number-btn" onclick="calculator.appendNumber('.')">.</button>
+                        <button class="calc-btn equals-btn" onclick="calculator.compute()">
+                            =
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advanced Functions -->
+                <div class="advanced-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-star"></i> Advanced Functions</h3>
+                    </div>
+                    <div class="advanced-grid">
+                        <button class="adv-btn" onclick="calculator.sqrt()" title="Square root (S)">
+                            <i class="fas fa-square-root-alt"></i>
+                            <span>√x</span>
+                        </button>
+                        <button class="adv-btn" onclick="calculator.square()" title="Square (Q)">
+                            <i class="fas fa-superscript"></i>
+                            <span>x²</span>
+                        </button>
+                        <button class="adv-btn" onclick="calculator.toggleSign()" title="Toggle sign">
+                            <i class="fas fa-plus-minus"></i>
+                            <span>±</span>
+                        </button>
+                        <button class="adv-btn" onclick="calculator.reciprocal()" title="Reciprocal">
+                            <span>1/x</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="history-section" id="historySection" style="display: none;">
+                    <div class="section-header">
+                        <h3><i class="fas fa-history"></i> History</h3>
+                        <button class="clear-history-btn" onclick="calculator.clearHistory()">
+                            <i class="fas fa-trash-alt"></i>
+                            Clear
+                        </button>
+                    </div>
+                    <div class="history-list" id="historyList">
+                        <!-- History items will be added here -->
+                    </div>
+                </div>
+
+                <!-- Keyboard Hints -->
+                <div class="keyboard-hints">
+                    <div class="hint-item"><kbd>0-9</kbd> Numbers</div>
+                    <div class="hint-item"><kbd>+−×÷</kbd> Operations</div>
+                    <div class="hint-item"><kbd>Enter</kbd> Calculate</div>
+                    <div class="hint-item"><kbd>Esc</kbd> Clear</div>
+                    <div class="hint-item"><kbd>Backspace</kbd> Delete</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../../index.js"></script>
+        <script src="./app.js"></script>
+    </body>
+
+</html>

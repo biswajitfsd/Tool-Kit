@@ -229,24 +229,24 @@ No build process required!
 
 ## 🗺️ Tools Roadmap
 
-### ✅ Available Tools (3):
+### ✅ Available Tools (4):
 
 -   **Pomodoro Timer** - Focus timer with presets (25/15/50 min) and automatic breaks
 -   **Digital Clock** - 12h/24h format toggle with date and day display
 -   **Todo List** - Task manager with filters, statistics, and localStorage persistence
+-   **Password Generator** - Strong password creation with customizable options
 
-### 🚧 In Development (10):
+### 🚧 In Development (9):
 
 1. **Stopwatch** - Lap time tracking and split times
 2. **Calculator** - Basic and scientific operations
-3. **Password Generator** - Strong password creation with customizable options
-4. **Unit Converter** - Length, weight, temperature, currency, speed, area, volume
-5. **BMI Calculator** - Body mass index with weight categories
-6. **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
-7. **URL Encoder/Decoder** - Safe URL encoding and decoding utility
-8. **JSON Formatter** - Format, validate, minify, and beautify JSON data
-9. **Base64 Encoder/Decoder** - Base64 encoding and decoding for text and files
-10. **SQL Formatter** - MySQL/PostgreSQL query formatting and validation
+3. **Unit Converter** - Length, weight, temperature, currency, speed, area, volume
+4. **BMI Calculator** - Body mass index with weight categories
+5. **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
+6. **URL Encoder/Decoder** - Safe URL encoding and decoding utility
+7. **JSON Formatter** - Format, validate, minify, and beautify JSON data
+8. **Base64 Encoder/Decoder** - Base64 encoding and decoding for text and files
+9. **SQL Formatter** - MySQL/PostgreSQL query formatting and validation
 
 ### 💡 Future Considerations:
 

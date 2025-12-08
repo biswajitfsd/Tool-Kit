@@ -1,0 +1,367 @@
+/* Stopwatch Container */
+.stopwatch-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Header */
+.stopwatch-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.stopwatch-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-colour);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.stopwatch-header h1 i {
+    color: #ff6b6b;
+    font-size: 2.2rem;
+}
+
+.stopwatch-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Display Card */
+.display-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+}
+
+/* Time Display */
+.time-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-colour);
+    font-family: 'Inter', 'Courier New', monospace;
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.time-display.running {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+}
+
+/* Control Buttons */
+.control-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.control-btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+}
+
+.control-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button Colors */
+.start-btn {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.start-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0d7a6f, #2dd968);
+}
+
+.pause-btn {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.pause-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d87ae6, #e04257);
+}
+
+.lap-btn {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.lap-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #3a8dd9, #00d9e8);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.reset-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e65c87, #e8cc2b);
+}
+
+/* Laps Section */
+.laps-section {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    border: 2px solid var(--border-color);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.laps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.laps-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-colour);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.laps-header h3 i {
+    color: #4facfe;
+}
+
+.clear-laps-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-laps-btn:hover {
+    background: #ff6b6b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Laps List */
+.laps-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.laps-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.laps-list::-webkit-scrollbar-track {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.laps-list::-webkit-scrollbar-thumb {
+    background: #4facfe;
+    border-radius: 10px;
+}
+
+/* Lap Item */
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    animation: lapSlide 0.3s ease;
+}
+
+@keyframes lapSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.lap-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+}
+
+.lap-item.fastest {
+    background: linear-gradient(135deg, rgba(17, 153, 142, 0.1), rgba(56, 239, 125, 0.1));
+    border-color: #38ef7d;
+}
+
+.lap-item.slowest {
+    background: linear-gradient(135deg, rgba(245, 87, 108, 0.1), rgba(240, 147, 251, 0.1));
+    border-color: #f5576c;
+}
+
+.lap-number {
+    font-weight: 600;
+    color: var(--primary-colour);
+    font-size: 1.1rem;
+}
+
+.lap-time {
+    font-family: 'Inter', 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4facfe;
+}
+
+.lap-item.fastest .lap-time {
+    color: #38ef7d;
+}
+
+.lap-item.slowest .lap-time {
+    color: #f5576c;
+}
+
+.lap-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.lap-badge.fastest {
+    background: #38ef7d;
+    color: white;
+}
+
+.lap-badge.slowest {
+    background: #f5576c;
+    color: white;
+}
+
+/* Dark Mode */
+body.dark-mode .time-display {
+    color: #e0e0e0;
+}
+
+body.dark-mode .laps-header h3,
+body.dark-mode .lap-number {
+    color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stopwatch-header h1 {
+        font-size: 2rem;
+    }
+
+    .time-display {
+        font-size: 3rem;
+    }
+
+    .display-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .control-buttons {
+        gap: 0.75rem;
+    }
+
+    .control-btn {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .laps-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stopwatch-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .time-display {
+        font-size: 2.5rem;
+    }
+
+    .control-btn span {
+        display: none;
+    }
+
+    .control-btn {
+        padding: 1rem;
+    }
+
+    .lap-time {
+        font-size: 1rem;
+    }
+
+    .laps-header h3 {
+        font-size: 1.2rem;
+    }
+}

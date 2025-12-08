@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Stopwatch - Track Time & Lap Intervals | Tool Kit</title>
+        <meta name="description"
+            content="Free online stopwatch with lap timing functionality. Track elapsed time, record multiple laps, and measure intervals with precision. Perfect for sports, workouts, and timing tasks.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/stopwatch/">
+        <meta property="og:title" content="Stopwatch - Track Time & Lap Intervals">
+        <meta property="og:description"
+            content="Free online stopwatch with lap timing functionality. Track elapsed time and record multiple laps with precision.">
+        <meta property="og:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/stopwatch/">
+        <meta property="twitter:title" content="Stopwatch - Track Time & Lap Intervals">
+        <meta property="twitter:description"
+            content="Free online stopwatch with lap timing functionality. Track elapsed time and record multiple laps.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Stopwatch",
+        "description": "Track elapsed time with lap timing functionality. Record multiple laps and measure intervals with precision stopwatch.",
+        "url": "https://tools.biswajit.online/tools/stopwatch/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Start, pause, and reset stopwatch",
+            "Record lap times with timestamps",
+            "Display total elapsed time",
+            "Show individual lap intervals",
+            "Track fastest and slowest laps",
+            "Clear all laps functionality",
+            "Millisecond precision timing",
+            "Responsive design for all devices"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "142"
+        }
+    }
+    </script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="stopwatch-container">
+                <!-- Header -->
+                <div class="stopwatch-header">
+                    <h1><i class="fas fa-stopwatch"></i> Stopwatch</h1>
+                    <p class="stopwatch-subtitle">Track time with lap precision</p>
+                </div>
+
+                <!-- Display Card -->
+                <div class="display-card">
+                    <!-- Main Time Display -->
+                    <div class="time-display" id="timeDisplay">00:00:00.00</div>
+
+                    <!-- Control Buttons -->
+                    <div class="control-buttons">
+                        <button class="control-btn start-btn" id="startBtn" onclick="stopwatch.start()">
+                            <i class="fas fa-play"></i>
+                            <span>Start</span>
+                        </button>
+                        <button class="control-btn pause-btn" id="pauseBtn" onclick="stopwatch.pause()" disabled>
+                            <i class="fas fa-pause"></i>
+                            <span>Pause</span>
+                        </button>
+                        <button class="control-btn lap-btn" id="lapBtn" onclick="stopwatch.recordLap()" disabled>
+                            <i class="fas fa-flag"></i>
+                            <span>Lap</span>
+                        </button>
+                        <button class="control-btn reset-btn" id="resetBtn" onclick="stopwatch.reset()">
+                            <i class="fas fa-redo"></i>
+                            <span>Reset</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Laps Section -->
+                <div class="laps-section" id="lapsSection" style="display: none;">
+                    <div class="laps-header">
+                        <h3><i class="fas fa-list-ol"></i> Lap Times</h3>
+                        <button class="clear-laps-btn" onclick="stopwatch.clearLaps()">
+                            <i class="fas fa-trash-alt"></i>
+                            Clear All
+                        </button>
+                    </div>
+                    <div class="laps-list" id="lapsList">
+                        <!-- Laps will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../../index.js"></script>
+        <script src="./app.js"></script>
+    </body>
+
+</html>

@@ -103,12 +103,12 @@ timer.setPreset(25, 'Focus Time'); // Change minutes
 -   **Pomodoro Timer** - Focus timer with presets and breaks
 -   **Digital Clock** - 12h/24h format with date display
 -   **Todo List** - Task manager with localStorage
+-   **Stopwatch** - Lap time tracking and split times
+-   **Calculator** - Basic and advanced operations
+-   **Password Generator** - Strong password creation tool
 
 ### 🚧 In Development:
 
--   **Stopwatch** - Lap time tracking and split times
--   **Calculator** - Basic and scientific operations
--   **Password Generator** - Strong password creation tool
 -   **Unit Converter** - Length, weight, temperature, currency
 -   **BMI Calculator** - Body mass index calculation
 -   **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
