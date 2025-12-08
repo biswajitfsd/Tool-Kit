@@ -21,10 +21,25 @@ TOOL-KIT/
 │   │   ├── index.html                # Timer page HTML with circular progress
 │   │   └── style.css                 # Timer-specific styles (card, buttons, progress ring)
 │   │
-│   └── todo/                         # Todo List Tool
-│       ├── app.js                    # Todo list logic with localStorage
-│       ├── index.html                # Todo list page HTML
-│       └── style.css                 # Todo list styles
+│   ├── stopwatch/                    # Stopwatch Tool
+│   │   ├── app.js                    # Stopwatch logic with lap tracking
+│   │   ├── index.html                # Stopwatch page HTML
+│   │   └── style.css                 # Stopwatch-specific styles
+│   │
+│   ├── todo/                         # Todo List Tool
+│   │   ├── app.js                    # Todo list logic with localStorage
+│   │   ├── index.html                # Todo list page HTML
+│   │   └── style.css                 # Todo list styles
+│   │
+│   ├── calculator/                   # Calculator Tool
+│   │   ├── app.js                    # Calculator logic with history
+│   │   ├── index.html                # Calculator page HTML
+│   │   └── style.css                 # Calculator-specific styles
+│   │
+│   └── bmi-calculator/               # BMI Calculator Tool
+│       ├── app.js                    # BMI calculation logic
+│       ├── index.html                # BMI calculator page HTML
+│       └── style.css                 # BMI calculator-specific styles
 │
 ├── fonts/                            # Custom Font Files
 │   └── ds_digital/                   # Digital display font family
@@ -229,24 +244,26 @@ No build process required!
 
 ## 🗺️ Tools Roadmap
 
-### ✅ Available Tools (4):
+### ✅ Available Tools (7):
 
 -   **Pomodoro Timer** - Focus timer with presets (25/15/50 min) and automatic breaks
 -   **Digital Clock** - 12h/24h format toggle with date and day display
 -   **Todo List** - Task manager with filters, statistics, and localStorage persistence
+-   **Stopwatch** - Lap time tracking with split times and calculation history
+-   **Calculator** - Basic and advanced operations with calculation history
+-   **BMI Calculator** - Body mass index with weight categories and health insights
 -   **Password Generator** - Strong password creation with customizable options
 
-### 🚧 In Development (9):
+### 🚧 In Development (8):
 
-1. **Stopwatch** - Lap time tracking and split times
-2. **Calculator** - Basic and scientific operations
-3. **Unit Converter** - Length, weight, temperature, currency, speed, area, volume
-4. **BMI Calculator** - Body mass index with weight categories
-5. **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
-6. **URL Encoder/Decoder** - Safe URL encoding and decoding utility
-7. **JSON Formatter** - Format, validate, minify, and beautify JSON data
-8. **Base64 Encoder/Decoder** - Base64 encoding and decoding for text and files
-9. **SQL Formatter** - MySQL/PostgreSQL query formatting and validation
+1. **Unit Converter** - Length, weight, temperature, currency, speed, area, volume
+2. **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
+3. **URL Encoder/Decoder** - Safe URL encoding and decoding utility
+4. **JSON Formatter** - Format, validate, minify, and beautify JSON data
+5. **Base64 Encoder/Decoder** - Base64 encoding and decoding for text and files
+6. **SQL Formatter** - MySQL/PostgreSQL query formatting and validation
+7. **Age Calculator** - Calculate exact age and days until birthday
+8. **Color Picker** - HEX, RGB, HSL codes with palette generator
 
 ### 💡 Future Considerations:
 

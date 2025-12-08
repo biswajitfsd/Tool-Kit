@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>BMI Calculator - Body Mass Index Calculator | Tool Kit</title>
+        <meta name="description"
+            content="Free BMI calculator to check your body mass index. Calculate BMI using metric or imperial units, get health category results, and track your ideal weight range.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/bmi-calculator/">
+        <meta property="og:title" content="BMI Calculator - Body Mass Index Calculator">
+        <meta property="og:description"
+            content="Calculate your BMI with metric or imperial units. Get instant results with health category and ideal weight range.">
+        <meta property="og:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/bmi-calculator/">
+        <meta property="twitter:title" content="BMI Calculator - Body Mass Index Calculator">
+        <meta property="twitter:description"
+            content="Calculate your BMI with metric or imperial units. Get instant results with health category.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BMI Calculator",
+        "description": "Calculate Body Mass Index (BMI) with metric or imperial units. Get instant health category results and ideal weight recommendations.",
+        "url": "https://tools.biswajit.online/tools/bmi-calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Calculate BMI using weight and height",
+            "Support for metric (kg, cm) and imperial (lbs, ft/in) units",
+            "Instant BMI calculation and health category",
+            "Color-coded BMI categories",
+            "Ideal weight range recommendations",
+            "BMI chart reference with WHO standards",
+            "Responsive design for all devices"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "ratingCount": "156"
+        }
+    }
+    </script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="bmi-container">
+                <!-- Header -->
+                <div class="bmi-header">
+                    <h1><i class="fas fa-weight"></i> BMI Calculator</h1>
+                    <p class="bmi-subtitle">Calculate your Body Mass Index</p>
+                </div>
+
+                <!-- Input Card -->
+                <div class="input-card">
+                    <!-- Unit Toggle -->
+                    <div class="unit-toggle">
+                        <button class="unit-btn active" data-unit="metric" onclick="bmiCalc.switchUnit('metric')">
+                            <i class="fas fa-ruler"></i>
+                            Metric
+                        </button>
+                        <button class="unit-btn" data-unit="imperial" onclick="bmiCalc.switchUnit('imperial')">
+                            <i class="fas fa-ruler-vertical"></i>
+                            Imperial
+                        </button>
+                    </div>
+
+                    <!-- Metric Inputs -->
+                    <div class="inputs-section" id="metricInputs">
+                        <!-- Weight -->
+                        <div class="input-group">
+                            <label for="weightKg">
+                                <i class="fas fa-weight-hanging"></i>
+                                Weight
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="weightKg" placeholder="70" min="1" max="500" step="0.1">
+                                <span class="unit-label">kg</span>
+                            </div>
+                        </div>
+
+                        <!-- Height -->
+                        <div class="input-group">
+                            <label for="heightCm">
+                                <i class="fas fa-ruler-vertical"></i>
+                                Height
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="heightCm" placeholder="170" min="1" max="300" step="0.1">
+                                <span class="unit-label">cm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Imperial Inputs -->
+                    <div class="inputs-section" id="imperialInputs" style="display: none;">
+                        <!-- Weight -->
+                        <div class="input-group">
+                            <label for="weightLbs">
+                                <i class="fas fa-weight-hanging"></i>
+                                Weight
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="weightLbs" placeholder="154" min="1" max="1100" step="0.1">
+                                <span class="unit-label">lbs</span>
+                            </div>
+                        </div>
+
+                        <!-- Height -->
+                        <div class="input-group-split">
+                            <div class="input-group">
+                                <label for="heightFt">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    Height
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="heightFt" placeholder="5" min="1" max="9" step="1">
+                                    <span class="unit-label">ft</span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="heightIn">&nbsp;</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="heightIn" placeholder="7" min="0" max="11" step="1">
+                                    <span class="unit-label">in</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculate Button -->
+                    <button class="calculate-btn" onclick="bmiCalc.calculate()">
+                        <i class="fas fa-calculator"></i>
+                        Calculate BMI
+                    </button>
+                </div>
+
+                <!-- Result Card -->
+                <div class="result-card" id="resultCard" style="display: none;">
+                    <div class="result-header">
+                        <h2>Your BMI Result</h2>
+                    </div>
+
+                    <!-- BMI Score -->
+                    <div class="bmi-score" id="bmiScore">
+                        <div class="score-value" id="scoreValue">0.0</div>
+                        <div class="score-category" id="scoreCategory">-</div>
+                    </div>
+
+                    <!-- BMI Scale -->
+                    <div class="bmi-scale">
+                        <div class="scale-bar">
+                            <div class="scale-marker" id="scaleMarker"></div>
+                        </div>
+                        <div class="scale-labels">
+                            <span>Underweight</span>
+                            <span>Normal</span>
+                            <span>Overweight</span>
+                            <span>Obese</span>
+                        </div>
+                    </div>
+
+                    <!-- Health Info -->
+                    <div class="health-info" id="healthInfo">
+                        <!-- Dynamic content -->
+                    </div>
+
+                    <!-- Ideal Weight -->
+                    <div class="ideal-weight" id="idealWeight">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <!-- BMI Chart Reference -->
+                <div class="bmi-chart">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> BMI Categories (WHO)</h3>
+                    </div>
+                    <div class="chart-table">
+                        <div class="chart-row underweight">
+                            <div class="chart-category">Underweight</div>
+                            <div class="chart-range">
+                                < 18.5</div>
+                            </div>
+                            <div class="chart-row normal">
+                                <div class="chart-category">Normal weight</div>
+                                <div class="chart-range">18.5 - 24.9</div>
+                            </div>
+                            <div class="chart-row overweight">
+                                <div class="chart-category">Overweight</div>
+                                <div class="chart-range">25.0 - 29.9</div>
+                            </div>
+                            <div class="chart-row obese">
+                                <div class="chart-category">Obese</div>
+                                <div class="chart-range">≥ 30.0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="disclaimer">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Note:</strong> BMI is a screening tool and does not diagnose body fatness or health.
+                            Consult a healthcare provider for personalized health advice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <script src="../../index.js"></script>
+            <script src="./app.js"></script>
+    </body>
+
+</html>
