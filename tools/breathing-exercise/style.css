@@ -1,0 +1,488 @@
+/* Breathing Container */
+.breathing-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Header */
+.breathing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.breathing-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-colour);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.breathing-header h1 i {
+    color: #4facfe;
+    font-size: 2.2rem;
+}
+
+.breathing-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Pattern Selector */
+.pattern-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.pattern-btn {
+    padding: 1.25rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--card-bg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pattern-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pattern-btn.active {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-color: #4facfe;
+    color: white;
+}
+
+.pattern-btn i {
+    font-size: 1.8rem;
+}
+
+.pattern-btn.active i {
+    color: white;
+}
+
+.pattern-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.pattern-desc {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Breathing Card */
+.breathing-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+}
+
+/* Circle Container */
+.circle-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Breathing Circle */
+.breathing-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    box-shadow: 0 8px 32px rgba(79, 172, 254, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 32px rgba(79, 172, 254, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 8px 48px rgba(79, 172, 254, 0.6);
+    }
+}
+
+.circle-inner {
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background: var(--card-bg);
+    opacity: 0.2;
+}
+
+/* Phase Display */
+.phase-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.phase-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-colour);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.phase-timer {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.cycle-counter {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Breathing States */
+.breathing-circle.inhale {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    box-shadow: 0 12px 48px rgba(79, 172, 254, 0.6);
+}
+
+.breathing-circle.hold {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    box-shadow: 0 12px 48px rgba(162, 155, 254, 0.6);
+}
+
+.breathing-circle.exhale {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    box-shadow: 0 12px 48px rgba(0, 184, 148, 0.6);
+}
+
+/* Duration Section */
+.duration-section {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+}
+
+.duration-section h3 {
+    color: var(--primary-colour);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.duration-section h3 i {
+    color: #4facfe;
+}
+
+.duration-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.duration-btn {
+    padding: 0.875rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.duration-btn:hover {
+    border-color: #4facfe;
+    transform: translateY(-2px);
+}
+
+.duration-btn.active {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-color: #4facfe;
+    color: white;
+}
+
+/* Controls Section */
+.controls-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.control-btn {
+    padding: 1.25rem;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    grid-column: span 2;
+}
+
+.pause-btn {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    grid-column: span 2;
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+/* Stats Section */
+.stats-section {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));
+    border-radius: 12px;
+}
+
+.stat-item i {
+    font-size: 1.5rem;
+    color: #4facfe;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: var(--primary-colour);
+    font-weight: 700;
+}
+
+/* Pattern Info */
+.pattern-info {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+}
+
+.info-card h3 {
+    color: var(--primary-colour);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-card h3 i {
+    color: #4facfe;
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Disclaimer */
+.disclaimer {
+    background: rgba(79, 172, 254, 0.1);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    display: flex;
+    gap: 1rem;
+}
+
+.disclaimer i {
+    color: #4facfe;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.disclaimer p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.disclaimer strong {
+    color: var(--primary-colour);
+}
+
+/* Dark Mode */
+body.dark-mode .phase-text {
+    color: #e0e0e0;
+}
+
+body.dark-mode .stat-value {
+    color: #e0e0e0;
+}
+
+body.dark-mode .info-card h3 {
+    color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .breathing-header h1 {
+        font-size: 2rem;
+    }
+
+    .breathing-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .phase-text {
+        font-size: 2rem;
+    }
+
+    .phase-timer {
+        font-size: 1.5rem;
+    }
+
+    .pattern-selector {
+        gap: 0.75rem;
+    }
+
+    .pattern-btn {
+        padding: 1rem 0.75rem;
+    }
+
+    .pattern-name {
+        font-size: 1rem;
+    }
+
+    .duration-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .breathing-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .breathing-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .phase-text {
+        font-size: 1.75rem;
+    }
+
+    .phase-timer {
+        font-size: 1.3rem;
+    }
+
+    .cycle-counter {
+        font-size: 0.95rem;
+    }
+
+    .pattern-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .pattern-btn {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem 1.5rem;
+    }
+
+    .pattern-btn i {
+        font-size: 1.5rem;
+    }
+
+    .control-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .control-btn span {
+        display: none;
+    }
+
+    .disclaimer {
+        flex-direction: column;
+        padding: 1rem;
+    }
+}

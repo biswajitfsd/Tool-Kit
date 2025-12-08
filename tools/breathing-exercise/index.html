@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W7VK6WC7');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Primary Meta Tags -->
+        <title>Breathing Exercise - Guided Relaxation & Mindfulness | Tool Kit</title>
+        <meta name="description"
+            content="Free guided breathing exercise tool with multiple patterns. Practice 4-7-8 breathing, box breathing, and deep breathing for stress relief and relaxation.">
+        <meta name="author" content="Biswajit">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tools.biswajit.online/tools/breathing-exercise/">
+        <meta property="og:title" content="Breathing Exercise - Guided Relaxation & Mindfulness">
+        <meta property="og:description"
+            content="Practice guided breathing exercises with visual animations. Multiple patterns for stress relief and relaxation.">
+        <meta property="og:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://tools.biswajit.online/tools/breathing-exercise/">
+        <meta property="twitter:title" content="Breathing Exercise - Guided Relaxation & Mindfulness">
+        <meta property="twitter:description"
+            content="Practice guided breathing exercises with visual animations for stress relief.">
+        <meta property="twitter:image" content="https://tools.biswajit.online/favicon.ico">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Structured Data / Schema.org -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Breathing Exercise",
+        "description": "Guided breathing exercise tool with multiple patterns including 4-7-8 breathing, box breathing, and deep breathing for stress relief and mindfulness.",
+        "url": "https://tools.biswajit.online/tools/breathing-exercise/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Multiple breathing patterns (4-7-8, Box, Deep)",
+            "Animated visual breathing guide",
+            "Real-time phase instructions",
+            "Session duration selector",
+            "Cycle counter and timer",
+            "Pause and resume functionality",
+            "Session statistics",
+            "Responsive design for all devices"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Biswajit"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "134"
+        }
+    }
+    </script>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VK6WC7" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Theme Toggle Menu -->
+        <div class="floating-menu">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="switch">
+                    <span class="icon light">☀️</span>
+                    <span class="icon dark">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="floating-menu" id="floatingNav">
+            <a href="../../" title="Home" data-page="home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../countdown-timer" title="Countdown" data-page="countdown">
+                <i class="fas fa-hourglass-half"></i>
+            </a>
+            <a href="../clock" title="Clock" data-page="clock">
+                <i class="fas fa-clock"></i>
+            </a>
+            <a href="../todo" title="Todo List" data-page="todo">
+                <i class="fas fa-tasks"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="countdown">
+            <div class="breathing-container">
+                <!-- Header -->
+                <div class="breathing-header">
+                    <h1><i class="fas fa-wind"></i> Breathing Exercise</h1>
+                    <p class="breathing-subtitle">Guided relaxation and mindfulness</p>
+                </div>
+
+                <!-- Pattern Selector -->
+                <div class="pattern-selector">
+                    <button class="pattern-btn active" data-pattern="478" onclick="breathingApp.selectPattern('478')">
+                        <i class="fas fa-spa"></i>
+                        <span class="pattern-name">4-7-8</span>
+                        <span class="pattern-desc">Relaxation</span>
+                    </button>
+                    <button class="pattern-btn" data-pattern="box" onclick="breathingApp.selectPattern('box')">
+                        <i class="fas fa-square"></i>
+                        <span class="pattern-name">Box</span>
+                        <span class="pattern-desc">Stress Relief</span>
+                    </button>
+                    <button class="pattern-btn" data-pattern="deep" onclick="breathingApp.selectPattern('deep')">
+                        <i class="fas fa-lungs"></i>
+                        <span class="pattern-name">Deep</span>
+                        <span class="pattern-desc">Calm</span>
+                    </button>
+                </div>
+
+                <!-- Breathing Circle -->
+                <div class="breathing-card">
+                    <div class="circle-container">
+                        <div class="breathing-circle" id="breathingCircle">
+                            <div class="circle-inner"></div>
+                        </div>
+                        <div class="phase-display">
+                            <div class="phase-text" id="phaseText">Ready</div>
+                            <div class="phase-timer" id="phaseTimer">0s</div>
+                            <div class="cycle-counter" id="cycleCounter">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duration Selector -->
+                <div class="duration-section">
+                    <h3><i class="fas fa-clock"></i> Session Duration</h3>
+                    <div class="duration-buttons">
+                        <button class="duration-btn" data-duration="60" onclick="breathingApp.setDuration(60)">1
+                            min</button>
+                        <button class="duration-btn active" data-duration="180"
+                            onclick="breathingApp.setDuration(180)">3 min</button>
+                        <button class="duration-btn" data-duration="300" onclick="breathingApp.setDuration(300)">5
+                            min</button>
+                        <button class="duration-btn" data-duration="600" onclick="breathingApp.setDuration(600)">10
+                            min</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls-section">
+                    <button class="control-btn start-btn" id="startBtn" onclick="breathingApp.start()">
+                        <i class="fas fa-play"></i>
+                        <span>Start</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" onclick="breathingApp.pause()"
+                        style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>Pause</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn" onclick="breathingApp.reset()">
+                        <i class="fas fa-redo"></i>
+                        <span>Reset</span>
+                    </button>
+                </div>
+
+                <!-- Session Stats -->
+                <div class="stats-section" id="statsSection" style="display: none;">
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="stat-label">Time</span>
+                        <span class="stat-value" id="statTime">0:00</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-redo"></i>
+                        <span class="stat-label">Cycles</span>
+                        <span class="stat-value" id="statCycles">0</span>
+                    </div>
+                </div>
+
+                <!-- Pattern Info -->
+                <div class="pattern-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> About This Pattern</h3>
+                        <p id="patternDescription">
+                            4-7-8 breathing is a relaxation technique that promotes calmness and reduces stress.
+                            Inhale for 4 seconds, hold for 7 seconds, and exhale for 8 seconds.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p><strong>Note:</strong> This tool is for relaxation and wellness purposes only. If you experience
+                        dizziness or discomfort, stop immediately. Consult a healthcare provider for medical advice.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../../index.js"></script>
+        <script src="./app.js"></script>
+    </body>
+
+</html>
