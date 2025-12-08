@@ -4,13 +4,13 @@ A collection of useful web-based productivity tools including a Pomodoro timer a
 
 ## 🚀 Features
 
--   **Pomodoro Timer**: Focus timer with presets (25/15/50 min) and break management
--   **Digital Clock**: Clean digital time display with 12h/24h toggle
--   **Todo List**: Task manager with filters and localStorage persistence
--   **Responsive Design**: Works on all devices
--   **Dark Mode**: Toggle between light and dark themes
--   **Modern UI**: Card-based design with smooth animations
--   **Smart Navigation**: Floating menu with context-aware links
+- **Pomodoro Timer**: Focus timer with presets (25/15/50 min) and break management
+- **Digital Clock**: Clean digital time display with 12h/24h toggle
+- **Todo List**: Task manager with filters and localStorage persistence
+- **Responsive Design**: Works on all devices
+- **Dark Mode**: Toggle between light and dark themes
+- **Modern UI**: Card-based design with smooth animations
+- **Smart Navigation**: Floating menu with context-aware links
 
 ## 📁 Project Structure
 
@@ -60,9 +60,9 @@ tool-kit/
 
 This project includes VS Code settings for optimal development experience:
 
--   4-space indentation
--   Format on save
--   Recommended extensions
+- 4-space indentation
+- Format on save
+- Recommended extensions
 
 Install recommended extensions when prompted by VS Code.
 
@@ -74,10 +74,10 @@ Edit CSS variables in `common.css`:
 
 ```css
 :root {
-    --primary-colour: #4e4d4d;
-    --accent-color: #4a90e2;
-    --card-bg: #ffffff;
-    /* ... */
+  --primary-colour: #4e4d4d;
+  --accent-color: #4a90e2;
+  --card-bg: #ffffff;
+  /* ... */
 }
 ```
 
@@ -86,47 +86,47 @@ Edit CSS variables in `common.css`:
 Edit preset values in `tools/countdown-timer/app.js`:
 
 ```javascript
-timer.setPreset(25, 'Focus Time'); // Change minutes
+timer.setPreset(25, "Focus Time"); // Change minutes
 ```
 
 ## 🌐 Browser Support
 
--   Chrome (recommended)
--   Firefox
--   Safari
--   Edge
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
 
 ## 🗺️ Tools Roadmap
 
 ### ✅ Available Tools:
 
--   **Pomodoro Timer** - Focus timer with presets (25/15/50 min) and breaks
--   **Digital Clock** - 12h/24h format toggle with date and day display
--   **Todo List** - Task manager with filters and localStorage persistence
--   **Stopwatch** - Lap time tracking with split times and history
--   **Calculator** - Basic and advanced operations with history
--   **BMI Calculator** - Body mass index with color-coded categories
--   **Password Generator** - Strong password creation tool
+- **Pomodoro Timer** - Focus timer with presets (25/15/50 min) and breaks
+- **Digital Clock** - 12h/24h format toggle with date and day display
+- **Todo List** - Task manager with filters and localStorage persistence
+- **Stopwatch** - Lap time tracking with split times and history
+- **Calculator** - Basic and advanced operations with history
+- **BMI Calculator** - Body mass index with color-coded categories
+- **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
+- **Password Generator** - Strong password creation tool
 
 ### 🚧 In Development:
 
--   **Unit Converter** - Length, weight, temperature, currency
--   **Breathing Exercise** - Guided breathing techniques (4-7-8, box breathing)
--   **URL Encoder/Decoder** - Safe URL encoding and decoding
--   **JSON Formatter** - Format, validate, and beautify JSON
--   **Base64 Encoder/Decoder** - Base64 encoding and decoding
--   **SQL Formatter** - MySQL/PostgreSQL query formatting
+- **Unit Converter** - Length, weight, temperature, currency
+- **URL Encoder/Decoder** - Safe URL encoding and decoding
+- **JSON Formatter** - Format, validate, and beautify JSON
+- **Base64 Encoder/Decoder** - Base64 encoding and decoding
+- **SQL Formatter** - MySQL/PostgreSQL query formatting
 
 ### 💡 Future Considerations:
 
--   World Clock (Multiple timezones)
--   Notes App (Quick note-taking with markdown)
--   Color Picker (HEX, RGB, HSL codes)
--   QR Code Generator
--   Text Case Converter
--   Word Counter & Reading Time
--   Age Calculator
--   Markdown Preview
+- World Clock (Multiple timezones)
+- Notes App (Quick note-taking with markdown)
+- Color Picker (HEX, RGB, HSL codes)
+- QR Code Generator
+- Text Case Converter
+- Word Counter & Reading Time
+- Age Calculator
+- Markdown Preview
 
 ## 📝 License
 
